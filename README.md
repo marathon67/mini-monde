@@ -1,2 +1,2 @@
-# morceau_de_sucre
-Twine : démonstrateur de snippets pour SugarCube 2
+# Morceau de Sucre
+Un démonstrateur de snippets pour le format *SugarCube 2* dans Twine
