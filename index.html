@@ -137,9 +137,7 @@ input:hover, select:hover, textarea:hover {
 	background-color: #eee;
 	border-color: #111;
 }
-hr {
-	border-color: #111;
-}
+hr{ border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); }
 
 .error {
 	background-color: #eaa;
@@ -293,6 +291,7 @@ color: #333;
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">l10nStrings.identity = 'aventure';
 l10nStrings.aborting = 'Echec';
 l10nStrings.cancel   = 'Annuler';
@@ -359,7 +358,9 @@ Config.ui.stowBarInitially = false;
 
 
 
-</script><tw-passagedata pid="1" name="Start" tags="" position="800,250">!Bout de sucre
+
+</script><tw-passagedata pid="1" name="Start" tags="" position="800,250">&lt;&lt;audio &quot;start&quot; loop play&gt;&gt;
+!Bout de sucre
 Un semblant d&#39;histoire destinée à me familiariser avec le modèle &#39;&#39;SugarCube V.2&#39;&#39; et à y transposer les principaux //snippets// déjà réalisés sous &#39;&#39;Harlowe&#39;&#39;.
 Les documents //medias// seront, pour gagner du temps, disponibles en ligne sur un dépôt &#39;&#39;Github&#39;&#39;. Ou sur &#39;&#39;Flickr&#39;&#39;.
 &lt;&lt;nobr&gt;&gt;
@@ -377,7 +378,9 @@ Les documents //medias// seront, pour gagner du temps, disponibles en ligne sur 
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
 [[Et si on allait aux champignons ?|promenade]]
-[[Ou alors un petit tour à la maison ?|maison]]</tw-passagedata>
+[[Ou alors un petit tour à la maison ?|maison]]
+[[Ou un essai de vidéo interactive ?|h5P]]
+</tw-passagedata>
 <tw-passagedata pid="2" name="StoryCaption" tags="" position="1500,0">&#39;&#39;Tableau de bord&#39;&#39;
 Joueur : $name
 Points : $points
@@ -385,9 +388,17 @@ Expérience : $experience</tw-passagedata>
 <tw-passagedata pid="3" name="StoryInit" tags="" position="1500,150">&lt;&lt;set $name to &quot;Bob&quot;&gt;&gt;
 &lt;&lt;set $points to 0&gt;&gt;
 &lt;&lt;set $experience to 10&gt;&gt;
-&lt;&lt;set $online_medias_url to &quot;https://pierre-67.github.io/morceau_de_sucre/medias/&quot;&gt;&gt;</tw-passagedata>
+&lt;&lt;set $online_medias_url to &quot;https://pierre-67.github.io/morceau_de_sucre/medias/&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;maison&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/maison.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;promenade&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/promenade.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;compost&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/compost.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;grange&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/grange.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;carte&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/carte.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;start&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/start.mp3&quot;&gt;&gt;
+&lt;&lt;waitforaudio&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="4" name="promenade" tags="" position="1000,200">!Aux champignons
 &lt;&lt;nobr&gt;&gt;
+&lt;&lt;masteraudio stop&gt;&gt;&lt;&lt;audio &quot;promenade&quot; loop play&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;En sous-bois - P. Kessler - 2016 &lt;/figcaption&gt;
@@ -397,6 +408,7 @@ On va jusqu&#39;au panneau et puis [[on rentre ?|Start]]
 &lt;&lt;set $experience to $experience+10&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="5" name="maison" tags="" position="800,400">!Home, sweet home
 &lt;&lt;nobr&gt;&gt;
+&lt;&lt;masteraudio stop&gt;&gt;&lt;&lt;audio &quot;maison&quot; loop play&gt;&gt;
 &lt;figure&gt;
 &lt;&lt;set $map_image to &quot;&lt;img src=&quot;+$image+&quot; width=\&quot;760\&quot; height=\&quot;507\&quot; border=\&quot;0\&quot; usemap=\&quot;#map\&quot; /&gt;&quot;&gt;&gt;
 &lt;&lt;print $map_image&gt;&gt;
@@ -409,7 +421,8 @@ On va jusqu&#39;au panneau et puis [[on rentre ?|Start]]
 &lt;/map&gt;
 &lt;&lt;/nobr&gt;&gt;
 * Explorez l&#39;image ci-dessus pour trouver les points cliquables et poursuivre votre chemin.
-* Voyez la [[localisation|carte]] sur OpenStreetMap</tw-passagedata>
+* Voyez la [[localisation|carte]] sur OpenStreetMap
+</tw-passagedata>
 <tw-passagedata pid="6" name="bagnole" tags="" position="600,200">!La bagnole
 Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 &lt;&lt;nobr&gt;&gt;
@@ -440,7 +453,8 @@ C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets e
 	&lt;&lt;set $compostVisited to true&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="8" name="grange" tags="" position="600,500">!La grange
+<tw-passagedata pid="8" name="grange" tags="" position="600,500">&lt;&lt;audio &quot;grange&quot; play&gt;&gt;
+!La grange
 Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des visiteurs sympas...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -459,13 +473,17 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 <tw-passagedata pid="10" name="StoryMenu" tags="" position="1500,450">[[À la maison|maison]]
 [[Aux champignons|promenade]]</tw-passagedata>
 <tw-passagedata pid="11" name="carte" tags="" position="800,550">!Localisation
+&lt;&lt;masteraudio stop&gt;&gt;&lt;&lt;audio &quot;carte&quot; loop play&gt;&gt;
 &lt;iframe width=&quot;700&quot; height=&quot;550&quot; frameborder=&quot;1&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; src=&quot;https://www.openstreetmap.org/export/embed.html?bbox=7.459974288940431%2C48.85861640881589%2C7.488255500793458%2C48.87061477566309&amp;amp;layer=mapnik&quot; style=&quot;border: 1px solid black&quot;&gt;&lt;/iframe&gt;
 Une carte proposée depuis le site OpenStreetMap sous forme d&#39;//iframe// incluse dans la page Twine. 
 Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en &#39;&#39;https&#39;&#39;
 [[Retour à la maison|maison]]</tw-passagedata>
 <tw-passagedata pid="12" name="PassageHeader" tags="" position="1501,579">&lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="13" name="PassageFooter" tags="" position="1504,705">&lt;hr /&gt;
-Réalisé avec &#39;&#39;Twine&#39;&#39; - Réseau Canopé - janvier 2017</tw-passagedata>
+&lt;small&gt;Réalisé avec &#39;&#39;Twine&#39;&#39; - Réseau Canopé - janvier 2017&lt;/small&gt;</tw-passagedata>
+<tw-passagedata pid="14" name="h5P" tags="" position="805,87">!Vidéo interactive avec HP
+
+&lt;iframe src=&quot;https://h5p.org/h5p/embed/824&quot; width=&quot;1090&quot; height=&quot;751&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script src=&quot;https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js&quot; charset=&quot;UTF-8&quot;&gt;&lt;/script&gt;</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">
