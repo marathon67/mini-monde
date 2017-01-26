@@ -291,6 +291,8 @@ color: #333;
 
 
 
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">l10nStrings.identity = 'aventure';
 l10nStrings.aborting = 'Echec';
 l10nStrings.cancel   = 'Annuler';
@@ -355,6 +357,8 @@ Config.ui.stowBarInitially = false;
 
 
 
+
+
 </script><tw-passagedata pid="1" name="Start" tags="" position="800,250">!Bout de sucre
 Un semblant d&#39;histoire destinée à me familiariser avec le modèle &#39;&#39;SugarCube V.2&#39;&#39; et à y transposer les principaux //snippets// déjà réalisés sous &#39;&#39;Harlowe&#39;&#39;.
 Les documents //medias// seront, pour gagner du temps, disponibles en ligne sur un dépôt &#39;&#39;Github&#39;&#39;. Ou sur &#39;&#39;Flickr&#39;&#39;.
@@ -381,11 +385,11 @@ Expérience : $experience</tw-passagedata>
 <tw-passagedata pid="3" name="StoryInit" tags="" position="1500,150">&lt;&lt;set $name to &quot;Bob&quot;&gt;&gt;
 &lt;&lt;set $points to 0&gt;&gt;
 &lt;&lt;set $experience to 10&gt;&gt;
----</tw-passagedata>
+&lt;&lt;set $online_medias_url to &quot;https://pierre-67.github.io/morceau_de_sucre/medias/&quot;&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="4" name="promenade" tags="" position="1000,200">!Aux champignons
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
-[img[https://c1.staticflickr.com/6/5630/30627287466_c0c9d3da99_c.jpg]]
+[img[$image]]
 &lt;figcaption&gt;En sous-bois - P. Kessler - 2016 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
@@ -394,7 +398,8 @@ On va jusqu&#39;au panneau et puis [[on rentre ?|Start]]
 <tw-passagedata pid="5" name="maison" tags="" position="800,400">!Home, sweet home
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
-&lt;img src=&quot;https://pierre-67.github.io/autour_de_twine/home_twine.jpg&quot; width=&quot;760&quot; height=&quot;507&quot; border=&quot;0&quot; usemap=&quot;#map&quot; /&gt;
+&lt;&lt;set $map_image to &quot;&lt;img src=&quot;+$image+&quot; width=\&quot;760\&quot; height=\&quot;507\&quot; border=\&quot;0\&quot; usemap=\&quot;#map\&quot; /&gt;&quot;&gt;&gt;
+&lt;&lt;print $map_image&gt;&gt;
 &lt;figcaption&gt;Gîte campagnard - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;map name=&quot;map&quot;&gt;
@@ -409,7 +414,7 @@ On va jusqu&#39;au panneau et puis [[on rentre ?|Start]]
 Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
-[img[https://c1.staticflickr.com/5/4041/4696703306_30c05ed3fc_b.jpg]]
+[img[$image]]
 &lt;figcaption&gt;Le roi boit - P. Kessler - 2012 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
@@ -424,7 +429,7 @@ Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets en putréfaction...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
-[img[https://c2.staticflickr.com/4/3832/9493006806_cc24a2da2c_b.jpg]]
+[img[$image]]
 &lt;figcaption&gt;Lézard au naturel sur son lit de compost - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
@@ -439,7 +444,7 @@ C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets e
 Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des visiteurs sympas...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
-[img[https://c1.staticflickr.com/1/303/20226815606_5e30e8993b_b.jpg]]
+[img[$image]]
 &lt;figcaption&gt;L&#39;envol - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
@@ -458,6 +463,7 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 Une carte proposée depuis le site OpenStreetMap sous forme d&#39;//iframe// incluse dans la page Twine. 
 Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en &#39;&#39;https&#39;&#39;
 [[Retour à la maison|maison]]</tw-passagedata>
+<tw-passagedata pid="12" name="PassageHeader" tags="" position="1501,579">&lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">

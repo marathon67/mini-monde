@@ -7,3 +7,4 @@ Un démonstrateur de snippets pour le format *SugarCube 2* dans Twine
 * Menu pour un accès direct à certains passages dans la barre latérale
 * Insertion de médias en ligne (affichage direct sans enregistrement comme fichier)
 * ImageMap avec accès direct à des passages de l'aventure
+* Insertion semi-automatique des images macro [img[$image]] et dépôt dans le dossier medias d'un fichier .jpg du même nom que le passage
