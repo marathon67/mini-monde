@@ -137,8 +137,12 @@ input:hover, select:hover, textarea:hover {
 	background-color: #eee;
 	border-color: #111;
 }
+h1 {margin:0; padding:0}
 hr{ border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); }
-
+#story {
+	margin:0;
+	padding:0.5em;
+}
 .error {
 	background-color: #eaa;
 	border-left-color: #d77;
@@ -293,6 +297,7 @@ color: #333;
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">l10nStrings.identity = 'aventure';
 l10nStrings.aborting = 'Echec';
 l10nStrings.cancel   = 'Annuler';
@@ -344,7 +349,8 @@ l10nStrings.autoloadPrompt = 'Une sauvegarde automatique est disponible. La char
 l10nStrings.macroBackText   = 'En arrière';
 l10nStrings.macroReturnText = 'Retour'
 
-Config.ui.stowBarInitially = false;
+Config.ui.stowBarInitially = true;
+
 
 
 
@@ -395,7 +401,7 @@ Expérience : $experience</tw-passagedata>
 &lt;&lt;cacheaudio &quot;chap_normal&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/start.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;chap_maison&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/maison.mp3&quot;&gt;&gt;
 &lt;&lt;waitforaudio&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="4" name="promenade" tags="chap_normal" position="1000.0001,250">!Aux champignons
+<tw-passagedata pid="4" name="promenade" tags="chap_normal" position="1000,250">!Aux champignons
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -404,23 +410,23 @@ Expérience : $experience</tw-passagedata>
 &lt;&lt;/nobr&gt;&gt;
 On va jusqu&#39;au panneau et puis [[on rentre ?|Start]]
 &lt;&lt;set $experience to $experience+10&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="5" name="maison" tags="chap_maison" position="800.0001,400">!Home, sweet home
+<tw-passagedata pid="5" name="maison" tags="chap_maison" position="800,400">!Home, sweet home
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 &lt;&lt;set $map_image to &quot;&lt;img src=&quot;+$image+&quot; width=\&quot;760\&quot; height=\&quot;507\&quot; border=\&quot;0\&quot; usemap=\&quot;#map\&quot; /&gt;&quot;&gt;&gt;
 &lt;&lt;print $map_image&gt;&gt;
 &lt;figcaption&gt;Gîte campagnard - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;&lt;/nobr&gt;&gt;
+* Explorez l&#39;image ci-dessus pour trouver les points cliquables et poursuivre votre chemin.
+* Voyez la [[localisation|carte]] sur OpenStreetMap
 &lt;map name=&quot;map&quot;&gt;
 &lt;area shape=&quot;rect&quot; coords=&quot;513,141,593,211&quot; alt=&quot;The bagnole&quot; data-passage=&quot;bagnole&quot; /&gt;
 &lt;area shape=&quot;rect&quot; coords=&quot;60,328,103,372&quot; alt=&quot;The Compost&quot; data-passage=&quot;compost&quot; /&gt;
 &lt;area shape=&quot;poly&quot; coords=&quot;4,113,149,57,189,74,193,124,85,206,75,210,56,194,33,215,3,160,2,157&quot; alt=&quot;The grange of the tiaupman&quot; data-passage=&quot;grange&quot; /&gt;
 &lt;/map&gt;
-&lt;&lt;/nobr&gt;&gt;
-* Explorez l&#39;image ci-dessus pour trouver les points cliquables et poursuivre votre chemin.
-* Voyez la [[localisation|carte]] sur OpenStreetMap
 </tw-passagedata>
-<tw-passagedata pid="6" name="bagnole" tags="chap_maison" position="600.0001,200">!La bagnole
+<tw-passagedata pid="6" name="bagnole" tags="chap_maison" position="600,200">!La bagnole
 Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -435,7 +441,7 @@ Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 	&lt;&lt;set $bagnoleVisited to true&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="7" name="compost" tags="chap_maison" position="600.0001,350">!Le compost
+<tw-passagedata pid="7" name="compost" tags="chap_maison" position="600,350">!Le compost
 C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets en putréfaction...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -450,7 +456,7 @@ C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets e
 	&lt;&lt;set $compostVisited to true&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="8" name="grange" tags="chap_maison" position="600.0001,500">!La grange
+<tw-passagedata pid="8" name="grange" tags="chap_maison" position="600,500">!La grange
 Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des visiteurs sympas...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -471,28 +477,30 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 &lt;hr /&gt;
 [[Crédits|crédits]] 
 </tw-passagedata>
-<tw-passagedata pid="11" name="carte" tags="chap_normal" position="800.0001,550">!Localisation
+<tw-passagedata pid="11" name="carte" tags="chap_normal" position="800,550">!Localisation
 &lt;iframe width=&quot;700&quot; height=&quot;550&quot; frameborder=&quot;1&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; src=&quot;https://www.openstreetmap.org/export/embed.html?bbox=7.459974288940431%2C48.85861640881589%2C7.488255500793458%2C48.87061477566309&amp;amp;layer=mapnik&quot; style=&quot;border: 1px solid black&quot;&gt;&lt;/iframe&gt;
 Une carte proposée depuis le site OpenStreetMap sous forme d&#39;//iframe// incluse dans la page Twine. 
 Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en &#39;&#39;https&#39;&#39;
 [[Retour à la maison|maison]]</tw-passagedata>
-<tw-passagedata pid="12" name="PassageHeader" tags="" position="1355.0001,126">&lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;
+<tw-passagedata pid="12" name="PassageHeader" tags="" position="1355,126">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;
 &lt;&lt;if not tags().includes($current_track)&gt;&gt;
 	&lt;&lt;masteraudio stop&gt;&gt;
 	&lt;&lt;if tags().includes(&quot;chap_normal&quot;)&gt;&gt;
-    	&lt;&lt;set $current_track to &quot;chap_normal&quot;&gt;&gt;	
+    	&lt;&lt;set $current_track to &quot;chap_normal&quot;&gt;&gt;
 	&lt;&lt;elseif tags().includes(&quot;chap_maison&quot;)&gt;&gt;
     	&lt;&lt;set $current_track to &quot;chap_maison&quot;&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 	&lt;&lt;audio $current_track loop play&gt;&gt;
 &lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
 </tw-passagedata>
 <tw-passagedata pid="13" name="PassageFooter" tags="" position="1354,1">&lt;hr /&gt;
 &lt;small&gt;Réalisé avec &#39;&#39;Twine&#39;&#39; - Réseau Canopé - janvier 2017&lt;/small&gt;</tw-passagedata>
-<tw-passagedata pid="14" name="h5P" tags="silence" position="800.0001,100">!Vidéo interactive avec HP
+<tw-passagedata pid="14" name="h5P" tags="silence" position="800,100">!Vidéo interactive avec HP
 
 &lt;iframe src=&quot;https://h5p.org/h5p/embed/824&quot; width=&quot;1090&quot; height=&quot;751&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script src=&quot;https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js&quot; charset=&quot;UTF-8&quot;&gt;&lt;/script&gt;</tw-passagedata>
-<tw-passagedata pid="15" name="crédits" tags="chap_normal" position="1000.0001,100">!Crédits
+<tw-passagedata pid="15" name="crédits" tags="chap_normal" position="1000,100">!Crédits
 
 Bientôt sur cette page la liste des &#39;&#39;auteurs&#39;&#39; pour :
 * les textes
