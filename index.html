@@ -309,6 +309,7 @@ color: #333;
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">l10nStrings.identity = 'aventure';
 l10nStrings.aborting = 'Echec';
 l10nStrings.cancel   = 'Annuler';
@@ -361,6 +362,7 @@ l10nStrings.macroBackText   = 'En arrière';
 l10nStrings.macroReturnText = 'Retour'
 
 Config.ui.stowBarInitially = true;
+
 
 
 
@@ -435,7 +437,8 @@ Expérience : $experience</tw-passagedata>
 &lt;figcaption&gt;En sous-bois - P. Kessler - 2016 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
-On va jusqu&#39;au panneau et puis [[on rentre à la maison|maison]] ?
+* On va jusqu&#39;au panneau et puis [[on rentre à la maison|maison]] ?
+* Ou plutôt on ramasse [[encore quelques champignons|champignons]] ?
 &lt;&lt;set $experience to $experience+10&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="5" name="maison" tags="maison" position="800,400">!Home, sweet home
 &lt;&lt;nobr&gt;&gt;
@@ -479,7 +482,8 @@ C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets e
 &lt;figcaption&gt;Lézard au naturel sur son lit de compost - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
-*[[Retour à la maison|maison]]
+*[[Je creuse un peu...|tegenaire]]
+*[[Je retourne à la maison|maison]]
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;if not $compostVisited &gt;&gt;
 	&lt;&lt;set $points +=10&gt;&gt;
@@ -494,7 +498,8 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 &lt;figcaption&gt;L&#39;envol - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
-*[[Retour à la maison|maison]]
+*[[Je veux observer la cigogne|cigogne]]
+*[[Je retourne à la maison|maison]]
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;if not $grangeVisited &gt;&gt;
 	&lt;&lt;set $points +=10&gt;&gt;
@@ -529,7 +534,8 @@ Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en
 &lt;small&gt;Réalisé avec &#39;&#39;Twine&#39;&#39; - P. Kessler - janvier 2017&lt;/small&gt;</tw-passagedata>
 <tw-passagedata pid="14" name="h5P" tags="silence" position="800,100">!Vidéo interactive avec HP
 
-&lt;iframe src=&quot;https://h5p.org/h5p/embed/824&quot; width=&quot;1090&quot; height=&quot;751&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script src=&quot;https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js&quot; charset=&quot;UTF-8&quot;&gt;&lt;/script&gt;</tw-passagedata>
+&lt;iframe src=&quot;https://h5p.org/h5p/embed/824&quot; width=&quot;1090&quot; height=&quot;751&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script src=&quot;https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js&quot; charset=&quot;UTF-8&quot;&gt;&lt;/script&gt;
+*[[Retour au départ|Start]]</tw-passagedata>
 <tw-passagedata pid="15" name="credits" tags="normal" position="1000,100">!Crédits
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -547,6 +553,35 @@ Bientôt sur cette page la liste des &#39;&#39;auteurs&#39;&#39; pour :
 Pierre Kessler Janvier 2017
 Licence CC BY-NC-SA</tw-passagedata>
 <tw-passagedata pid="17" name="StoryBanner" tags="" position="1510,727">Bienvenue dans...</tw-passagedata>
+<tw-passagedata pid="18" name="tegenaire" tags="maison" position="475,500">!Au secours
+Cette idée, aussi, d&#39;aller déranger la &#39;&#39;tégénaire&#39;&#39; !
+&lt;&lt;nobr&gt;&gt;
+&lt;figure&gt;
+[img[$image]]
+&lt;figcaption&gt;Araignée tégénaire - P. Kessler - 2013 &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;&lt;/nobr&gt;&gt;
+*[[Je retourne à la maison|maison]]
+</tw-passagedata>
+<tw-passagedata pid="19" name="cigogne" tags="maison" position="600,650">!Vive l&#39;Alsace
+Et le magnifique oiseau qui en est un des symboles...
+&lt;&lt;nobr&gt;&gt;
+&lt;figure&gt;
+[img[$image]]
+&lt;figcaption&gt;Cigogne en vol - P. Kessler - 2013 &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;&lt;/nobr&gt;&gt;
+*[[Je retourne à la maison|maison]]
+</tw-passagedata>
+<tw-passagedata pid="20" name="champignons" tags="foret normal" position="1000,398">!Aux champignons
+&lt;&lt;nobr&gt;&gt;
+&lt;figure&gt;
+[img[$image]]
+&lt;figcaption&gt;En sous-bois - P. Kessler - 2016 &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;&lt;/nobr&gt;&gt;
+*[[Je retourne à la maison|maison]]
+</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">
