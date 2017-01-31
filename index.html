@@ -410,7 +410,9 @@ Un démonstrateur de fonctionnalités pour le format *SugarCube 2* dans Twine. C
 * ImageMap avec accès direct à des passages de l&#39;aventure
 * Insertion semi-automatique des images par dépôt dans le dossier medias d&#39;un fichier .jpg du même nom que le passage
 * Organisation des passages en chapitre au moyen des balises
-* Gestion d&#39;une ambiance sonore
+* Gestion d&#39;une ambiance sonore et graphique
+* Temporisation
+
 Les documents //medias// seront, pour gagner du temps, disponibles en ligne sur un dépôt &#39;&#39;Github&#39;&#39;. Ou sur &#39;&#39;Flickr&#39;&#39;.
 &lt;&lt;audio $current_track loop play&gt;&gt;
 </tw-passagedata>
@@ -437,14 +439,17 @@ On va jusqu&#39;au panneau et puis [[on rentre à la maison|maison]] ?
 &lt;&lt;set $experience to $experience+10&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="5" name="maison" tags="maison" position="800,400">!Home, sweet home
 &lt;&lt;nobr&gt;&gt;
+&lt;&lt;set _choix to either(&quot;compost&quot;, &quot;bagnole&quot;, &quot;grange&quot;)&gt;&gt;
 &lt;figure&gt;
 &lt;&lt;set $map_image to &quot;&lt;img src=&quot;+$image+&quot; width=\&quot;760\&quot; height=\&quot;507\&quot; border=\&quot;0\&quot; usemap=\&quot;#map\&quot; /&gt;&quot;&gt;&gt;
 &lt;&lt;print $map_image&gt;&gt;
 &lt;figcaption&gt;Gîte campagnard - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
-* Explorez l&#39;image ci-dessus pour trouver les points cliquables et poursuivre votre chemin.
+* Vous avez &#39;&#39;8 secondes&#39;&#39; pour explorer l&#39;image ci-dessus et trouver les points cliquables pour poursuivre votre chemin.
 * Voyez la [[localisation|carte]] sur OpenStreetMap
+&lt;&lt;timed 8s t8n&gt;&gt;!!!C&#39;est bien trop lent !!! Désolé, je choisis pour vous.&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 10s&gt;&gt;&lt;&lt;goto _choix &gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;map name=&quot;map&quot;&gt;
 &lt;area shape=&quot;rect&quot; coords=&quot;513,141,593,211&quot; alt=&quot;The bagnole&quot; data-passage=&quot;bagnole&quot; /&gt;
 &lt;area shape=&quot;rect&quot; coords=&quot;60,328,103,372&quot; alt=&quot;The Compost&quot; data-passage=&quot;compost&quot; /&gt;
