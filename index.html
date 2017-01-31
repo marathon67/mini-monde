@@ -103,11 +103,16 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 ****************************************************************/
 body {
 	color: #111;
-	background-color: #fff
+	background-color: #fff;
+	background-repeat: no-repeat;
 }
-body.foret {background-color: lightgreen;}
-body.maison {background-color: blanchedalmond;}
-
+	body.maison {
+	background-image: linear-gradient(to bottom, tan 0%, white 100%);
+}
+body.foret {
+	background-image: linear-gradient(to bottom, lightgreen 0%, white 100%);
+}
+#6bba70
 a {
 	color: #35c;
 }
@@ -303,6 +308,7 @@ color: #333;
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">l10nStrings.identity = 'aventure';
 l10nStrings.aborting = 'Echec';
 l10nStrings.cancel   = 'Annuler';
@@ -375,8 +381,9 @@ Config.ui.stowBarInitially = true;
 
 
 
+
 </script><tw-passagedata pid="1" name="Start" tags="normal" position="800,250">!Morceau de sucre
-Un démonstrateur de fonctionnalités pour le format *SugarCube 2* dans Twine. Cliquez sur la &#39;&#39;flèche&#39;&#39; à votre gauche pour faire apparaître le menu.
+Un démonstrateur de fonctionnalités pour le format *SugarCube 2* dans Twine. Cliquez sur la &#39;&#39;flèche&#39;&#39; à votre gauche pour faire apparaître le menu. Voyez aussi le [[dépôt Github|https://github.com/pierre-67/morceau_de_sucre]].
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 &lt;picture&gt;
@@ -474,7 +481,7 @@ C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets e
 	&lt;&lt;set $compostVisited to true&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="8" name="grange" tags="" position="600,500">!La grange
+<tw-passagedata pid="8" name="grange" tags="maison" position="600,500">!La grange
 Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des visiteurs sympas...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -531,6 +538,10 @@ Bientôt sur cette page la liste des &#39;&#39;auteurs&#39;&#39; pour :
 * les photos
 &lt;&lt;back &quot;Retour à l&#39;aventure&quot;&gt;&gt;
 </tw-passagedata>
+<tw-passagedata pid="16" name="StoryAuthor" tags="" position="1502,602">Réalisation
+Pierre Kessler Janvier 2017
+Licence CC BY-NC-SA</tw-passagedata>
+<tw-passagedata pid="17" name="StoryBanner" tags="" position="1510,727">Bienvenue dans...</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">
