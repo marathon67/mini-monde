@@ -106,11 +106,14 @@ body {
 	background-color: #fff;
 	background-repeat: no-repeat;
 }
-	body.maison {
-	background-image: linear-gradient(to bottom, tan 0%, white 100%);
+	body.foret {
+	background-image: linear-gradient(to bottom, sienna 0%, white 100%);
 }
-body.foret {
+body.jardin {
 	background-image: linear-gradient(to bottom, lightgreen 0%, white 100%);
+}
+body.maison {
+	background-image: linear-gradient(to bottom, linen 0%, white 100%);
 }
 body.nuit {
 	background-image: linear-gradient(to bottom, grey 0%, white 100%);
@@ -316,6 +319,10 @@ color: #333;
 
 
 
+
+
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">l10nStrings.identity = 'aventure';
 l10nStrings.aborting = 'Echec';
 l10nStrings.cancel   = 'Annuler';
@@ -393,7 +400,11 @@ Config.ui.stowBarInitially = true;
 
 
 
-</script><tw-passagedata pid="1" name="start" tags="nuit normal" position="800,250">!Mon petit monde
+
+
+
+
+</script><tw-passagedata pid="1" name="start" tags="nuit outils" position="800,250">!Mini-monde
 Un démonstrateur de fonctionnalités pour le format *SugarCube 2* dans Twine. Cliquez sur la &#39;&#39;flèche&#39;&#39; à votre gauche pour faire apparaître le menu. Voyez aussi le [[dépôt Github|https://github.com/pierre-67/morceau_de_sucre]].
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -427,10 +438,12 @@ Expérience : $experience</tw-passagedata>
 &lt;&lt;set $experience to 10&gt;&gt;
 &lt;&lt;set $online_medias_url to &quot;https://pierre-67.github.io/morceau_de_sucre/medias/&quot;&gt;&gt;
 &lt;&lt;set $current_track to &quot;normal&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;normal&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/start.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;outils&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/start.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;maison&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/maison.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;foret&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/foret.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;jardin&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/jardin.mp3&quot;&gt;&gt;
 &lt;&lt;waitforaudio&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="4" name="promenade" tags="normal foret" position="660,803">!Aux champignons
+<tw-passagedata pid="4" name="promenade" tags="foret" position="660,803">!Aux champignons
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -461,7 +474,7 @@ Expérience : $experience</tw-passagedata>
     &lt;area alt=&quot;Promenade&quot; title=&quot;Promenade&quot; data-passage=&quot;promenade&quot; coords=&quot;727,118,32&quot; shape=&quot;circle&quot; /&gt;
     &lt;area alt=&quot;Escalier&quot; title=&quot;Escalier&quot; data-passage=&quot;escalier&quot; coords=&quot;198,412,330,478&quot; shape=&quot;rect&quot; /&gt;
 &lt;/map&gt;</tw-passagedata>
-<tw-passagedata pid="6" name="bagnole" tags="maison" position="607,109">!La bagnole
+<tw-passagedata pid="6" name="bagnole" tags="outils" position="607,109">!La bagnole
 Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -476,7 +489,7 @@ Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 	&lt;&lt;set $bagnoleVisited to true&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="7" name="compost" tags="maison" position="604,297">!Le compost
+<tw-passagedata pid="7" name="compost" tags="jardin" position="604,297">!Le compost
 C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets en putréfaction...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -492,7 +505,7 @@ C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets e
 	&lt;&lt;set $compostVisited to true&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="8" name="grange" tags="maison" position="599,422">!La grange
+<tw-passagedata pid="8" name="grange" tags="jardin" position="599,422">!La grange
 Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des visiteurs sympas...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -510,12 +523,13 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="9" name="StorySubtitle" tags="" position="1404,228">Un démonstrateur basique pour les possibilité du format //SugarCube 2.12//</tw-passagedata>
 <tw-passagedata pid="10" name="StoryMenu" tags="" position="1009,357">[[Balcon sur la planète|maison]]
-[[Un tour en forêt|promenade]]
+[[En forêt|promenade]]
 [[Affût dans le jardin|affut]]
+[[Dans la maison|escalier]]
 &lt;hr /&gt;
 [[Crédits|credits]] 
 </tw-passagedata>
-<tw-passagedata pid="11" name="carte" tags="normal" position="1078,505">!Localisation
+<tw-passagedata pid="11" name="carte" tags="outils" position="1078,505">!Localisation
 &lt;iframe width=&quot;700&quot; height=&quot;550&quot; frameborder=&quot;1&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; src=&quot;https://www.openstreetmap.org/export/embed.html?bbox=7.459974288940431%2C48.85861640881589%2C7.488255500793458%2C48.87061477566309&amp;amp;layer=mapnik&quot; style=&quot;border: 1px solid black&quot;&gt;&lt;/iframe&gt;
 Une carte proposée depuis le site OpenStreetMap sous forme d&#39;//iframe// incluse dans la page Twine. 
 Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en &#39;&#39;https&#39;&#39;
@@ -524,10 +538,14 @@ Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en
 &lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;
 &lt;&lt;if not tags().includes($current_track)&gt;&gt;
 	&lt;&lt;masteraudio stop&gt;&gt;
-	&lt;&lt;if tags().includes(&quot;normal&quot;)&gt;&gt;
-    	&lt;&lt;set $current_track to &quot;normal&quot;&gt;&gt;
+	&lt;&lt;if tags().includes(&quot;outils&quot;)&gt;&gt;
+    	&lt;&lt;set $current_track to &quot;outils&quot;&gt;&gt;
 	&lt;&lt;elseif tags().includes(&quot;maison&quot;)&gt;&gt;
     	&lt;&lt;set $current_track to &quot;maison&quot;&gt;&gt;
+	&lt;&lt;elseif tags().includes(&quot;jardin&quot;)&gt;&gt;
+    	&lt;&lt;set $current_track to &quot;jardin&quot;&gt;&gt;	
+	&lt;&lt;elseif tags().includes(&quot;foret&quot;)&gt;&gt;
+    	&lt;&lt;set $current_track to &quot;foret&quot;&gt;&gt;	
 	&lt;&lt;/if&gt;&gt;
 	&lt;&lt;audio $current_track loop play&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -535,11 +553,11 @@ Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en
 </tw-passagedata>
 <tw-passagedata pid="13" name="PassageFooter" tags="" position="1012,99">&lt;hr /&gt;
 &lt;small&gt;Réalisé avec &#39;&#39;Twine&#39;&#39; - P. Kessler - janvier 2017&lt;/small&gt;</tw-passagedata>
-<tw-passagedata pid="14" name="h5P" tags="silence" position="800,100">!Vidéo interactive avec HP
+<tw-passagedata pid="14" name="h5P" tags="silence outils" position="800,100">!Vidéo interactive avec HP
 
 &lt;iframe src=&quot;https://h5p.org/h5p/embed/824&quot; width=&quot;1090&quot; height=&quot;751&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script src=&quot;https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js&quot; charset=&quot;UTF-8&quot;&gt;&lt;/script&gt;
 *[[Retour au départ|start]]</tw-passagedata>
-<tw-passagedata pid="15" name="credits" tags="normal nuit" position="1203,505">!Crédits
+<tw-passagedata pid="15" name="credits" tags="outils" position="1203,505">!Crédits
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -556,8 +574,8 @@ Bientôt sur cette page la liste des &#39;&#39;auteurs&#39;&#39; pour :
 Pierre Kessler Janvier 2017
 Licence CC BY-NC-SA</tw-passagedata>
 <tw-passagedata pid="17" name="StoryBanner" tags="" position="1529,230">Bienvenue dans...</tw-passagedata>
-<tw-passagedata pid="18" name="tegenaire" tags="maison" position="476,294">!Au secours
-Cette idée, aussi, d&#39;aller déranger la &#39;&#39;tégénaire&#39;&#39; !
+<tw-passagedata pid="18" name="tegenaire" tags="jardin" position="476,294">!Au secours !
+Cette idée, aussi, d&#39;aller déranger la &#39;&#39;tégénaire&#39;&#39; ! Mais rassurez-vous, cette araignée-là est inoffensive. Enfin, pour l&#39;homme.
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -566,7 +584,7 @@ Cette idée, aussi, d&#39;aller déranger la &#39;&#39;tégénaire&#39;&#39; !
 &lt;&lt;/nobr&gt;&gt;
 *[[Je retourne au petit monde|maison]]
 </tw-passagedata>
-<tw-passagedata pid="19" name="cigogne" tags="maison" position="474,419">!Vive l&#39;Alsace
+<tw-passagedata pid="19" name="cigogne" tags="jardin" position="474,419">!Vive l&#39;Alsace
 Et le magnifique oiseau qui en est un des symboles...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -576,7 +594,7 @@ Et le magnifique oiseau qui en est un des symboles...
 &lt;&lt;/nobr&gt;&gt;
 *[[Je retourne au petit monde|maison]]
 </tw-passagedata>
-<tw-passagedata pid="20" name="champignons" tags="foret normal" position="513,803">!Aux champignons
+<tw-passagedata pid="20" name="champignons" tags="foret" position="513,803">!Aux champignons
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -585,7 +603,7 @@ Et le magnifique oiseau qui en est un des symboles...
 &lt;&lt;/nobr&gt;&gt;
 *[[Je retourne au petit monde|maison]]
 *[[Je prends le chemin qui s&#39;enfonce dans le bois|chevreuil]]</tw-passagedata>
-<tw-passagedata pid="21" name="affut" tags="foret" position="599,547">!! Une chaise-affût
+<tw-passagedata pid="21" name="affut" tags="jardin" position="599,547">!! Une chaise-affût
 De là, bien camouflé, on peut observer et/ou photographier, tous les petits animaux du jardin. Oiseaux, grenouilles, hérissons...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -597,7 +615,7 @@ Et même tenter de les photographier en vol, comme cette mésange bleue.
 *[[Je retourne au petit monde|maison]]
 *Je jette un coup d&#39;œil [[aux grenouilles|grenouille]]
 *Je n&#39;ai pas encore vu Robin le [[rouge-gorge|rouge-gorge]]</tw-passagedata>
-<tw-passagedata pid="22" name="chevreuil" tags="foret normal" position="379,808">!Brève rencontre
+<tw-passagedata pid="22" name="chevreuil" tags="foret" position="379,808">!Brève rencontre
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -606,7 +624,7 @@ Et même tenter de les photographier en vol, comme cette mésange bleue.
 &lt;&lt;/nobr&gt;&gt;
 Les chevreuils sont nombreaux dans le [[Neubruchwald|carte]]. Mais pas de sangliers !
 *[[Je retourne au petit monde|maison]]</tw-passagedata>
-<tw-passagedata pid="23" name="grenouille" tags="foret" position="467,550">!Grenouille
+<tw-passagedata pid="23" name="grenouille" tags="jardin" position="467,550">!Grenouille
 Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenouilles.
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -616,7 +634,7 @@ Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenoui
 &lt;&lt;/nobr&gt;&gt;
 *[[Je retourne au petit monde|maison]]
 *Non, non ! Encore [[un peu d&#39;affût|affut]]</tw-passagedata>
-<tw-passagedata pid="24" name="escalier" tags="normal" position="912,625">!Dans la maison
+<tw-passagedata pid="24" name="escalier" tags="maison" position="912,625">!Dans la maison
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -626,7 +644,7 @@ Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenoui
 *[[Je retourne au petit monde|maison]]
 * Ou on continue [[jusqu&#39;au salon|salon]] ?
 </tw-passagedata>
-<tw-passagedata pid="25" name="salon" tags="normal" position="912,750">!Au salon
+<tw-passagedata pid="25" name="salon" tags="maison" position="912,750">!Au salon
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -634,7 +652,7 @@ Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenoui
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
 *[[Je retourne au petit monde|maison]]</tw-passagedata>
-<tw-passagedata pid="26" name="rouge-gorge" tags="foret" position="599,678">!Robin
+<tw-passagedata pid="26" name="rouge-gorge" tags="jardin" position="599,678">!Robin
 Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom !&lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -642,7 +660,7 @@ Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom 
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
 *[[Je retourne au petit monde|maison]]
-*Non, non ! Encore [[un peu d&#39;affût|affut]]</tw-passagedata>
+*Non, non ! Encore [[un peu d&#39;affût|affut]] ou alors, [[un coup d&#39;œil au tas de compost|compost]]...</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">
