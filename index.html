@@ -374,8 +374,7 @@ l10nStrings.autoloadOk     = 'Chargement d\'une sauvegarde automatique';
 l10nStrings.autoloadPrompt = 'Une sauvegarde automatique est disponible. La charger ou recommencer ?';
 l10nStrings.macroBackText   = 'En arrière';
 l10nStrings.macroReturnText = 'Retour'
-
-Config.ui.stowBarInitially = true;
+Config.ui.stowBarInitially = false;
 
 
 
@@ -523,7 +522,7 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="9" name="StorySubtitle" tags="" position="1404,228">Un démonstrateur basique pour les possibilité du format //SugarCube 2.12//</tw-passagedata>
-<tw-passagedata pid="10" name="StoryMenu" tags="" position="1009,357">[[Balcon sur la planète|maison]]
+<tw-passagedata pid="10" name="StoryMenu" tags="" position="1009,357">[[Vue sur la planète|maison]]
 [[En forêt|promenade]]
 [[Affût dans le jardin|affut]]
 [[Dans la maison|escalier]]
@@ -535,7 +534,7 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 Une carte proposée depuis le site OpenStreetMap sous forme d&#39;//iframe// incluse dans la page Twine. 
 Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en &#39;&#39;https&#39;&#39;.
 &lt;&lt;back &quot;Je retourne à l&#39;aventure&quot;&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="12" name="PassageHeader" tags="" position="1138,102">&lt;&lt;nobr&gt;&gt;
+<tw-passagedata pid="12" name="PassageHeader" tags="" position="1138,102">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;
 &lt;&lt;if not tags().includes($current_track)&gt;&gt;
 	&lt;&lt;if tags().includes(&quot;silence&quot;)&gt;&gt;
@@ -554,7 +553,7 @@ Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en
 			&lt;&lt;audio $current_track loop play&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 </tw-passagedata>
 <tw-passagedata pid="13" name="PassageFooter" tags="" position="1012,99">&lt;hr /&gt;
 &lt;small&gt;Réalisé avec &#39;&#39;Twine&#39;&#39; - P. Kessler - janvier 2017&lt;/small&gt;</tw-passagedata>
