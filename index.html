@@ -104,16 +104,17 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 body {
 	color: #111;
 	background-color: #fff;
-	background-repeat: no-repeat;
+	background-image: linear-gradient(to bottom, whitesmoke 0%, white 100%);
+		background-repeat: no-repeat;
 }
 	body.foret {
-	background-image: linear-gradient(to bottom, sienna 0%, white 100%);
+	background-image: linear-gradient(to bottom, peru 0%, white 100%);
 }
 body.jardin {
-	background-image: linear-gradient(to bottom, lightgreen 0%, white 100%);
+	background-image: linear-gradient(to bottom, seagreen 0%, white 100%);
 }
 body.maison {
-	background-image: linear-gradient(to bottom, linen 0%, white 100%);
+	background-image: linear-gradient(to bottom, steelblue 0%, white 100%);
 }
 body.nuit {
 	background-image: linear-gradient(to bottom, grey 0%, white 100%);
@@ -437,8 +438,8 @@ Expérience : $experience</tw-passagedata>
 &lt;&lt;set $points to 0&gt;&gt;
 &lt;&lt;set $experience to 10&gt;&gt;
 &lt;&lt;set $online_medias_url to &quot;https://pierre-67.github.io/morceau_de_sucre/medias/&quot;&gt;&gt;
-&lt;&lt;set $current_track to &quot;normal&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;outils&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/start.mp3&quot;&gt;&gt;
+&lt;&lt;set $current_track to &quot;nuit&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;nuit&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/start.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;maison&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/maison.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;foret&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/foret.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;jardin&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/jardin.mp3&quot;&gt;&gt;
@@ -462,7 +463,7 @@ Expérience : $experience</tw-passagedata>
 &lt;figcaption&gt;Little Planet - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
-* Vous avez &#39;&#39;20 secondes&#39;&#39; pour explorer l&#39;image ci-dessus et trouver les points cliquables pour poursuivre votre chemin.
+* Vous avez &#39;&#39;20 secondes&#39;&#39; pour parcourir l&#39;image ci-dessus avec la souris et trouver les &#39;&#39;six&#39;&#39; points cliquables pour poursuivre votre exploration.
 * Vous pouvez aussi en découvrir la [[localisation|carte]] sur OpenStreetMap
 &lt;&lt;timed 20s t8n&gt;&gt;!!!C&#39;est bien trop lent !!! Désolé, je choisis pour vous.&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 10s&gt;&gt;&lt;&lt;goto _choix &gt;&gt;&lt;&lt;/timed&gt;&gt;
@@ -474,7 +475,7 @@ Expérience : $experience</tw-passagedata>
     &lt;area alt=&quot;Promenade&quot; title=&quot;Promenade&quot; data-passage=&quot;promenade&quot; coords=&quot;727,118,32&quot; shape=&quot;circle&quot; /&gt;
     &lt;area alt=&quot;Escalier&quot; title=&quot;Escalier&quot; data-passage=&quot;escalier&quot; coords=&quot;198,412,330,478&quot; shape=&quot;rect&quot; /&gt;
 &lt;/map&gt;</tw-passagedata>
-<tw-passagedata pid="6" name="bagnole" tags="outils" position="607,109">!La bagnole
+<tw-passagedata pid="6" name="bagnole" tags="jardin" position="607,109">!La bagnole
 Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -529,35 +530,39 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 &lt;hr /&gt;
 [[Crédits|credits]] 
 </tw-passagedata>
-<tw-passagedata pid="11" name="carte" tags="outils" position="1078,505">!Localisation
+<tw-passagedata pid="11" name="carte" tags="silence" position="1078,505">!Localisation
 &lt;iframe width=&quot;700&quot; height=&quot;550&quot; frameborder=&quot;1&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; src=&quot;https://www.openstreetmap.org/export/embed.html?bbox=7.459974288940431%2C48.85861640881589%2C7.488255500793458%2C48.87061477566309&amp;amp;layer=mapnik&quot; style=&quot;border: 1px solid black&quot;&gt;&lt;/iframe&gt;
 Une carte proposée depuis le site OpenStreetMap sous forme d&#39;//iframe// incluse dans la page Twine. 
-Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en &#39;&#39;https&#39;&#39;
+Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en &#39;&#39;https&#39;&#39;.
 &lt;&lt;back &quot;Je retourne à l&#39;aventure&quot;&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="12" name="PassageHeader" tags="" position="1138,102">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;
 &lt;&lt;if not tags().includes($current_track)&gt;&gt;
-	&lt;&lt;masteraudio stop&gt;&gt;
-	&lt;&lt;if tags().includes(&quot;outils&quot;)&gt;&gt;
-    	&lt;&lt;set $current_track to &quot;outils&quot;&gt;&gt;
-	&lt;&lt;elseif tags().includes(&quot;maison&quot;)&gt;&gt;
-    	&lt;&lt;set $current_track to &quot;maison&quot;&gt;&gt;
-	&lt;&lt;elseif tags().includes(&quot;jardin&quot;)&gt;&gt;
-    	&lt;&lt;set $current_track to &quot;jardin&quot;&gt;&gt;	
-	&lt;&lt;elseif tags().includes(&quot;foret&quot;)&gt;&gt;
-    	&lt;&lt;set $current_track to &quot;foret&quot;&gt;&gt;	
+	&lt;&lt;if tags().includes(&quot;silence&quot;)&gt;&gt;
+		&lt;&lt;masteraudio stop&gt;&gt;
+	&lt;&lt;else&gt;&gt;	
+		&lt;&lt;if tags().includes(&quot;nuit&quot;)&gt;&gt;
+    		&lt;&lt;set $current_track to &quot;nuit&quot;&gt;&gt;
+		&lt;&lt;elseif tags().includes(&quot;maison&quot;)&gt;&gt;
+    		&lt;&lt;set $current_track to &quot;maison&quot;&gt;&gt;
+		&lt;&lt;elseif tags().includes(&quot;jardin&quot;)&gt;&gt;
+    		&lt;&lt;set $current_track to &quot;jardin&quot;&gt;&gt;	
+		&lt;&lt;elseif tags().includes(&quot;foret&quot;)&gt;&gt;
+    		&lt;&lt;set $current_track to &quot;foret&quot;&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+			&lt;&lt;masteraudio stop&gt;&gt;
+			&lt;&lt;audio $current_track loop play&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
-	&lt;&lt;audio $current_track loop play&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 </tw-passagedata>
 <tw-passagedata pid="13" name="PassageFooter" tags="" position="1012,99">&lt;hr /&gt;
 &lt;small&gt;Réalisé avec &#39;&#39;Twine&#39;&#39; - P. Kessler - janvier 2017&lt;/small&gt;</tw-passagedata>
-<tw-passagedata pid="14" name="h5P" tags="silence outils" position="800,100">!Vidéo interactive avec HP
+<tw-passagedata pid="14" name="h5P" tags="silence" position="800,100">!Vidéo interactive avec HP
 
 &lt;iframe src=&quot;https://h5p.org/h5p/embed/824&quot; width=&quot;1090&quot; height=&quot;751&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script src=&quot;https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js&quot; charset=&quot;UTF-8&quot;&gt;&lt;/script&gt;
 *[[Retour au départ|start]]</tw-passagedata>
-<tw-passagedata pid="15" name="credits" tags="outils" position="1203,505">!Crédits
+<tw-passagedata pid="15" name="credits" tags="silence" position="1203,505">!Crédits
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
