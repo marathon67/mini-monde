@@ -117,7 +117,7 @@ body.maison {
 	background-image: linear-gradient(to bottom, steelblue 0%, white 100%);
 }
 body.nuit {
-	background-image: linear-gradient(to bottom, grey 0%, white 100%);
+	background-image: linear-gradient(to bottom, black 10%, white 100%);
 }
 .nuit>h1 {color:white;}
 
@@ -291,16 +291,19 @@ html.debug-view .debug.hidden .debug {
 	background-color: #bbb;
 }
 img {display: block; margin: 0 auto;}
+
 figure, figcaption {
 display: block;
 font-style: italic;
 font-variant: small-caps;
-color: #333;
+color: #000;
 }
 
+nuit> figcaption {color:white !important}
 
 /*! <<checkvars>> macro for SugarCube 2.x */
 #ui-dialog-body.checkvars{padding:1em}#ui-dialog-body.checkvars h1{font-size:1.5em;margin-top:0}#ui-dialog-body.checkvars table{border-collapse:collapse;border-spacing:0}#ui-dialog-body.checkvars thead tr{border-bottom:2px solid #ccc}#ui-dialog-body.checkvars tr:not(:first-child){border-top:1px solid #ccc}#ui-dialog-body.checkvars td,#ui-dialog-body.checkvars th{padding:.25em 1em}#ui-dialog-body.checkvars td:first-child,#ui-dialog-body.checkvars th:first-child{padding-left:.5em;border-right:1px solid #ccc}#ui-dialog-body.checkvars td:last-child,#ui-dialog-body.checkvars th:last-child{padding-right:.5em}#ui-dialog-body.checkvars th:first-child{text-align:center}#ui-dialog-body.checkvars td:first-child{font-weight:700;text-align:right}#ui-dialog-body.checkvars td{font-family:monospace,monospace;vertical-align:top;white-space:pre-wrap}#ui-dialog-body.checkvars .scroll-pad{margin:0;padding:0}
+
 
 
 
@@ -391,7 +394,7 @@ var audioEnabledHandler = function () {
 			Stops all audio currently playing, via `<<audio>>` or `<<playlist>>`,
 			when the setting is disabled.
 		*/
-		new Wikifier(null, "<<stopallaudio>><<playlist stop>>");
+		new Wikifier(null, "<<masteraudio stop>>");
 	}
 };
 Setting.addToggle("audioEnabled", {
@@ -403,6 +406,7 @@ Setting.addToggle("audioEnabled", {
 
 /*! <<checkvars>> macro for SugarCube 2.x */
 !function(){"use strict";if("undefined"==typeof version||"undefined"==typeof version.title||"SugarCube"!==version.title||"undefined"==typeof version.major||version.major<2)throw new Error("<<checkvars>> macro requires SugarCube 2.0 or greater, aborting load");Macro.add("checkvars",{handler:function(){function toString(value,indent){var baseType=typeof value;switch(baseType){case"number":return isNaN(value)?"NaN":isFinite(value)?String(value):"Infinity";case"string":return JSON.stringify(value);case"function":return"(function)";default:if("object"!==baseType||null==value)return String(value);var objType=Object.prototype.toString.call(value);if("[object Date]"===objType)return'(object: Date, value: "'+value.toISOString()+'")';if("[object RegExp]"===objType)return"(object: RegExp, value: "+value.toString()+")";var opener,closer,result=[],indentText="  ";return indent||(indent=""),("[object Set]"===objType||value instanceof Set)&&(value=Array.from(value)),Array.isArray(value)?(opener="[\n",closer="\n"+indent+"]",value.forEach(function(p,i){result.push(indent+indentText+i+" ⇒ "+toString(value[i],indent+indentText))}),Object.keys(value).forEach(function(p){/^\d+$/.test(p)||result.push(indent+indentText+toString(p)+" ⇒ "+toString(value[p],indent+indentText))})):"[object Map]"===objType||value instanceof Map?(opener="{\n",closer="\n"+indent+"}",Array.from(value).map(function(kv){result.push(indent+indentText+toString(kv[0],indent+indentText)+" ⇒ "+toString(kv[1],indent+indentText))})):(opener="{\n",closer="\n"+indent+"}",Object.keys(value).forEach(function(p){result.push(indent+indentText+toString(p)+" ⇒ "+toString(value[p],indent+indentText))})),opener+result.join(",\n")+closer}}var dialog,sv=State.variables,names=Object.keys(sv);if(dialog=UI.setup("Story $variables","checkvars"),0===names.length)return dialog.innerHTML="<h1>Story $variables (<code>State.variables</code>):</h1><p><em>No $variables currently set…</em></p>",void UI.open();dialog.innerHTML="<h1>Story $variables (<code>State.variables</code>):</h1><table><thead><tr><th>Name</th><th>Value</th></tr></thead><tbody></tbody></table>"+(/applewebkit|chrome/.test(Browser.userAgent)?"":'<div class="scroll-pad">&nbsp;</div>');var tbody=dialog.querySelector("tbody");names.sort(function(a,b){return Util.isNumeric(a)&&Util.isNumeric(b)?Number(a)-Number(b):a.localeCompare(b)});for(var i=0;i<names.length;i++){var tr=document.createElement("tr"),tdName=document.createElement("td"),tdValue=document.createElement("td");tdName.textContent="$"+names[i],tdValue.textContent=toString(sv[names[i]]),tr.appendChild(tdName),tr.appendChild(tdValue),tbody.appendChild(tr)}UI.open()}})}();
+
 
 
 
@@ -468,7 +472,7 @@ Joueur : $name
 Points : $points
 Expérience : $experience
 Animaux vus (sur $max_animaux) : $animaux</tw-passagedata>
-<tw-passagedata pid="3" name="StoryInit" tags="" position="1013,224">&lt;&lt;set $name to &quot;Bob&quot;&gt;&gt;
+<tw-passagedata pid="3" name="StoryInit" tags="" position="1013.0001,224">&lt;&lt;set $name to &quot;Bob&quot;&gt;&gt;
 &lt;&lt;set $points to 0&gt;&gt;
 &lt;&lt;set $experience to 10&gt;&gt;
 &lt;&lt;set $animaux to 0&gt;&gt;
@@ -479,7 +483,9 @@ Animaux vus (sur $max_animaux) : $animaux</tw-passagedata>
 &lt;&lt;cacheaudio &quot;maison&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/maison.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;foret&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/foret.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;jardin&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/jardin.mp3&quot;&gt;&gt;
-&lt;&lt;waitforaudio&gt;&gt;</tw-passagedata>
+&lt;&lt;waitforaudio&gt;&gt;
+
+</tw-passagedata>
 <tw-passagedata pid="4" name="promenade" tags="foret" position="660,803">!Aux champignons
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -714,6 +720,7 @@ Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom 
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="25" name="Pick up the note." tags="" position="884,374">Double-cliquez sur ce passage pour le modifier.</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">
