@@ -337,7 +337,10 @@ nuit> figcaption {color:white !important}
 
 
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">l10nStrings.identity = 'aventure';
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">/*! Traduction de Sugarcube */
+l10nStrings.identity = 'aventure';
 l10nStrings.aborting = 'Echec';
 l10nStrings.cancel   = 'Annuler';
 l10nStrings.close    = 'Fermer';
@@ -387,7 +390,9 @@ l10nStrings.autoloadOk     = 'Chargement d\'une sauvegarde automatique';
 l10nStrings.autoloadPrompt = 'Une sauvegarde automatique est disponible. La charger ou recommencer ?';
 l10nStrings.macroBackText   = 'En arrière';
 l10nStrings.macroReturnText = 'Retour'
-Config.ui.stowBarInitially = 800;
+Config.ui.stowBarInitially = 1024;
+
+/*! Paramètres audio */
 var audioEnabledHandler = function () {
 	if (!settings.audioEnabled) { // is false
 		/*
@@ -404,8 +409,60 @@ Setting.addToggle("audioEnabled", {
 	onChange : audioEnabledHandler
 });
 
+/*! Gestion de l'inventaire */
+Macro.add([ "initInv", "emptyInv" ], {
+	handler : function () {
+		State.variables.inventory = [];
+	}
+});
+Macro.add("addToInv", {
+	handler : function () {
+		if (this.args.length === 0) {
+			return this.error("no inventory item specified");
+		}
+		if (!State.variables.inventory.contains(this.args[0])) {
+			State.variables.inventory.push(this.args[0]);
+		}
+	}
+});
+Macro.add("removeFromInv", {
+	handler: function () {
+		if (this.args.length === 0) {
+			return this.error("no inventory item specified");
+		}
+		var index = State.variables.inventory.indexOf(this.args[0]);
+		if (index !== -1) {
+			State.variables.inventory.splice(index, 1);
+		}
+	}
+});
+Macro.add("inv", {
+	handler: function () {
+		if (State.variables.inventory.length === 0) {
+			new Wikifier(this.output, 'Rien...');
+		} else {
+			new Wikifier(this.output, State.variables.inventory.join(', '));
+		}
+	}
+});
+Macro.add("listInv", {
+	handler: function () {
+		if (State.variables.inventory.length === 0) {
+			new Wikifier(this.output, 'Rien...');
+		} else {
+			var	macro = this.name,
+				list  = State.variables.inventory.map(function (item) {
+					return '- ' + item ;
+				});
+			new Wikifier(this.output, '<div id="inventory-list">' + list.join('\n') + '</div>');
+		}
+	}
+});
+
 /*! <<checkvars>> macro for SugarCube 2.x */
 !function(){"use strict";if("undefined"==typeof version||"undefined"==typeof version.title||"SugarCube"!==version.title||"undefined"==typeof version.major||version.major<2)throw new Error("<<checkvars>> macro requires SugarCube 2.0 or greater, aborting load");Macro.add("checkvars",{handler:function(){function toString(value,indent){var baseType=typeof value;switch(baseType){case"number":return isNaN(value)?"NaN":isFinite(value)?String(value):"Infinity";case"string":return JSON.stringify(value);case"function":return"(function)";default:if("object"!==baseType||null==value)return String(value);var objType=Object.prototype.toString.call(value);if("[object Date]"===objType)return'(object: Date, value: "'+value.toISOString()+'")';if("[object RegExp]"===objType)return"(object: RegExp, value: "+value.toString()+")";var opener,closer,result=[],indentText="  ";return indent||(indent=""),("[object Set]"===objType||value instanceof Set)&&(value=Array.from(value)),Array.isArray(value)?(opener="[\n",closer="\n"+indent+"]",value.forEach(function(p,i){result.push(indent+indentText+i+" ⇒ "+toString(value[i],indent+indentText))}),Object.keys(value).forEach(function(p){/^\d+$/.test(p)||result.push(indent+indentText+toString(p)+" ⇒ "+toString(value[p],indent+indentText))})):"[object Map]"===objType||value instanceof Map?(opener="{\n",closer="\n"+indent+"}",Array.from(value).map(function(kv){result.push(indent+indentText+toString(kv[0],indent+indentText)+" ⇒ "+toString(kv[1],indent+indentText))})):(opener="{\n",closer="\n"+indent+"}",Object.keys(value).forEach(function(p){result.push(indent+indentText+toString(p)+" ⇒ "+toString(value[p],indent+indentText))})),opener+result.join(",\n")+closer}}var dialog,sv=State.variables,names=Object.keys(sv);if(dialog=UI.setup("Story $variables","checkvars"),0===names.length)return dialog.innerHTML="<h1>Story $variables (<code>State.variables</code>):</h1><p><em>No $variables currently set…</em></p>",void UI.open();dialog.innerHTML="<h1>Story $variables (<code>State.variables</code>):</h1><table><thead><tr><th>Name</th><th>Value</th></tr></thead><tbody></tbody></table>"+(/applewebkit|chrome/.test(Browser.userAgent)?"":'<div class="scroll-pad">&nbsp;</div>');var tbody=dialog.querySelector("tbody");names.sort(function(a,b){return Util.isNumeric(a)&&Util.isNumeric(b)?Number(a)-Number(b):a.localeCompare(b)});for(var i=0;i<names.length;i++){var tr=document.createElement("tr"),tdName=document.createElement("td"),tdValue=document.createElement("td");tdName.textContent="$"+names[i],tdValue.textContent=toString(sv[names[i]]),tr.appendChild(tdName),tr.appendChild(tdValue),tbody.appendChild(tr)}UI.open()}})}();
+
+
 
 
 
@@ -463,16 +520,18 @@ Un démonstrateur de fonctionnalités pour le format *SugarCube 2* dans Twine. C
 * Organisation des passages en chapitre au moyen des balises
 * Gestion d&#39;une ambiance sonore et graphique
 * Temporisation
+* Gestion d&#39;un inventaire
+* Gestion des paramètres du jeu
 
 Les documents //medias// seront, pour gagner du temps, disponibles en ligne sur un dépôt &#39;&#39;Github&#39;&#39;. Ou sur &#39;&#39;Flickr&#39;&#39;.
 &lt;&lt;audio $current_track loop play&gt;&gt;
 </tw-passagedata>
 <tw-passagedata pid="2" name="StoryCaption" tags="" position="1140,227">&#39;&#39;Tableau de bord&#39;&#39;
-Joueur : $name
 Points : $points
 Expérience : $experience
 Animaux vus (sur $max_animaux) : $animaux</tw-passagedata>
-<tw-passagedata pid="3" name="StoryInit" tags="" position="1013.0001,224">&lt;&lt;set $name to &quot;Bob&quot;&gt;&gt;
+<tw-passagedata pid="3" name="StoryInit" tags="" position="1013,224">&lt;&lt;initInv&gt;&gt;
+&lt;&lt;addToInv &quot;un petit panier en osier&quot;&gt;&gt;
 &lt;&lt;set $points to 0&gt;&gt;
 &lt;&lt;set $experience to 10&gt;&gt;
 &lt;&lt;set $animaux to 0&gt;&gt;
@@ -493,8 +552,10 @@ Animaux vus (sur $max_animaux) : $animaux</tw-passagedata>
 &lt;figcaption&gt;En sous-bois - P. Kessler - 2016 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
-* On va jusqu&#39;au panneau et puis [[on retourne au petit monde|maison]] ?
-* Ou plutôt on ramasse [[encore quelques champignons|champignons]] ?
+Je mets un de ces champignons dans mon panier, puis...
+&lt;&lt;addToInv &quot;un champignon vénéneux&quot;&gt;&gt;
+* Je fais quelques pas et [[je retourne au petit monde|maison]] ?
+* Non, je veux ramasser [[encore quelques champignons|champignons]] ?
 &lt;&lt;set $experience to $experience+10&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="5" name="maison" tags="maison" position="778,429">!Balcon sur une mini-planète
 &lt;&lt;nobr&gt;&gt;
@@ -567,6 +628,13 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 [[Affût dans le jardin|affut]]
 [[Dans la maison|escalier]]
 &lt;hr /&gt;
+&lt;&lt;click &quot;Inventaire&quot;&gt;&gt;
+	&lt;&lt;script&gt;&gt;
+	var dialog = Dialog.setup(&quot;Inventaire&quot;, &quot;my-dialog-class&quot;);
+	new Wikifier(dialog, Story.get(&quot;inventaire&quot;).processText());
+	Dialog.open();
+	&lt;&lt;/script&gt;&gt;
+&lt;&lt;/click&gt;&gt;
 [[Crédits|credits]] 
 &lt;&lt;click &quot;Variables&quot;&gt;&gt;&lt;&lt;checkvars&gt;&gt;&lt;&lt;/click&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="10" name="carte" tags="silence" position="1078,505">!Localisation
@@ -620,13 +688,14 @@ Bientôt sur cette page la liste des &#39;&#39;auteurs&#39;&#39; pour :
 &lt;&lt;audio &quot;:playing&quot; pause&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="15" name="StoryBanner" tags="" position="1265,233">Bienvenue dans mon...</tw-passagedata>
 <tw-passagedata pid="16" name="tegenaire" tags="jardin" position="476,294">!Au secours !
-Cette idée, aussi, d&#39;aller déranger la &#39;&#39;tégénaire&#39;&#39; ! Mais rassurez-vous, cette araignée-là est inoffensive. Enfin, pour l&#39;homme.
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Araignée tégénaire - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
+Cette idée, aussi, d&#39;aller déranger la &#39;&#39;tégénaire&#39;&#39; ! Mais rassurez-vous, cette araignée-là est inoffensive. Enfin, pour l&#39;homme.
+Par contre, l&#39;araignée s&#39;invite dans votre panier...&lt;&lt;addToInv &quot;une araignée tégénaire&quot;&gt;&gt;
 *[[Je retourne au petit monde|maison]]
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
@@ -648,6 +717,7 @@ Et le magnifique oiseau qui en est un des symboles...
 &lt;figcaption&gt;En sous-bois - P. Kessler - 2016 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
+&lt;&lt;addToInv &quot;quelques belles girolles&quot;&gt;&gt;
 *[[Je retourne au petit monde|maison]]
 *[[Je prends le chemin qui s&#39;enfonce dans le bois|chevreuil]]</tw-passagedata>
 <tw-passagedata pid="19" name="affut" tags="jardin" position="599,547">!! Une chaise-affût
@@ -721,6 +791,10 @@ Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom 
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="25" name="Pick up the note." tags="" position="884,374">Double-cliquez sur ce passage pour le modifier.</tw-passagedata>
+<tw-passagedata pid="26" name="inventaire" tags="" position="1328.0001,508">
+&lt;&lt;if $inventory.length == 0&gt;&gt;Vous n&#39;avez rien. Rien du tout.&lt;&lt;else&gt;&gt;&#39;&#39;Vous avez en votre possession :&#39;&#39;
+&lt;&lt;listInv&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">
