@@ -1,5 +1,5 @@
-# Morceau de Sucre
-Un démonstrateur de fonctionnalités pour le format //SugarCube 2// dans Twine
+# Mini-monde
+Un démonstrateur de fonctionnalités pour le format **SugarCube 2** dans Twine.
 
 * Traduction en français de la barre de menu latérale et des différentes commandes
 * CSS alternative claire
