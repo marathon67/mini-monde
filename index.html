@@ -342,6 +342,7 @@ nuit> figcaption {color:white !important}
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/*! Traduction de Sugarcube */
 l10nStrings.identity = 'aventure';
 l10nStrings.aborting = 'Echec';
@@ -397,8 +398,8 @@ Config.ui.stowBarInitially = 1024;
 
 /*! Passage Override en cas de victoire */
 Config.navigation.override = function (passageName) {
-	if (State.variables.animaux = 7) {
-		return "victoire";
+	if (State.variables.animaux == 7) {
+			return "victoire";
 	}
 };
 
@@ -512,16 +513,14 @@ Macro.add("listInv", {
 
 
 
-</script><tw-passagedata pid="1" name="start" tags="nuit" position="800,250">!Mini-monde
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
+
+</script><tw-passagedata pid="1" name="start" tags="nuit" position="792,196">!Mini-monde
+&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Le jour se lève - P. Kessler - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 Un démonstrateur des possibilités du format *SugarCube 2* dans Twine. Cliquez sur la &#39;&#39;flèche&#39;&#39; à votre gauche pour faire apparaître le menu. Voyez aussi le [[dépôt Github|https://github.com/pierre-67/morceau_de_sucre]].
 * Prêt à [[découvrir mon petit monde|maison]] ?
-* Ou voulez-vous faire un &lt;&lt;link &quot;essai de vidéo interactive&quot; &quot;h5P&quot;&gt;&gt;&lt;&lt;audio &quot;:playing&quot; pause&gt;&gt;&lt;&lt;/link&gt;&gt; ?
 !!Fonctionnalités proposées ici
 * Traduction en français de la barre de menu latérale et des différentes commandes
 * CSS alternative claire
@@ -535,6 +534,7 @@ Un démonstrateur des possibilités du format *SugarCube 2* dans Twine. Cliquez 
 * Temporisation
 * Gestion d&#39;un inventaire
 * Gestion des paramètres du jeu
+* Gestion de points gagnés et d&#39;une victoire finale
 
 Les documents //medias// seront, pour gagner du temps, disponibles en ligne sur un dépôt &#39;&#39;Github&#39;&#39;. Ou sur &#39;&#39;Flickr&#39;&#39;.
 &lt;&lt;audio $track loop play&gt;&gt;
@@ -578,7 +578,7 @@ Je mets un de ces champignons dans mon panier, puis...
 &lt;figcaption&gt;Little Planet - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
-* Vous avez &#39;&#39;20 secondes&#39;&#39; pour parcourir l&#39;image ci-dessus avec la souris et trouver les &#39;&#39;six&#39;&#39; points cliquables pour poursuivre votre exploration. Et rencontrer &#39;&#39;sept&#39;&#39; animaux différents.
+* Vous avez &#39;&#39;20 secondes&#39;&#39; pour parcourir l&#39;image ci-dessus avec la souris et trouver les &#39;&#39;six&#39;&#39; points cliquables pour poursuivre votre exploration. Pour &#39;&#39;gagner la partie&#39;&#39; il vous fudra rencontrer &#39;&#39;sept&#39;&#39; animaux différents.
 * Vous pouvez aussi en découvrir la [[localisation|carte]] sur OpenStreetMap
 &lt;&lt;timed 20s &gt;&gt;!!!C&#39;est bien trop lent !!! Désolé, je choisis pour vous.
 &lt;&lt;next 5s &gt;&gt;&lt;&lt;goto _choix &gt;&gt;
@@ -648,7 +648,6 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 	&lt;&lt;/script&gt;&gt;
 &lt;&lt;/click&gt;&gt;
 [[Crédits|credits]]
-[[Victoire|victoire]]
 &lt;&lt;click &quot;Variables&quot;&gt;&gt;&lt;&lt;checkvars&gt;&gt;&lt;&lt;/click&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="10" name="carte" tags="" position="1078,505">!Localisation
 &lt;iframe width=&quot;700&quot; height=&quot;550&quot; frameborder=&quot;1&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; src=&quot;https://www.openstreetmap.org/export/embed.html?bbox=7.459974288940431%2C48.85861640881589%2C7.488255500793458%2C48.87061477566309&amp;amp;layer=mapnik&quot; style=&quot;border: 1px solid black&quot;&gt;&lt;/iframe&gt;
@@ -678,12 +677,7 @@ Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en
 &lt;&lt;/silently&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="12" name="PassageFooter" tags="" position="1012,99">&lt;hr /&gt;
 &lt;small&gt;Réalisé avec &#39;&#39;Twine&#39;&#39; - P. Kessler - janvier 2017&lt;/small&gt;</tw-passagedata>
-<tw-passagedata pid="13" name="h5P" tags="" position="800,100">&lt;&lt;audio &quot;:playing&quot; pause&gt;&gt;
-!Vidéo interactive avec HP
-&lt;iframe src=&quot;https://h5p.org/h5p/embed/824&quot; width=&quot;1090&quot; height=&quot;751&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script src=&quot;https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js&quot; charset=&quot;UTF-8&quot;&gt;&lt;/script&gt;
-* &lt;&lt;link &quot;Retourner au départ&quot; &quot;start&quot;&gt;&gt;&lt;&lt;audio &quot;:paused&quot; play&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata>
-<tw-passagedata pid="14" name="credits" tags="" position="1203,505">!Crédits
+<tw-passagedata pid="13" name="credits" tags="" position="1203,505">!Crédits
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -703,8 +697,8 @@ Et aucun animal n&#39;a été maltraité pendant cette réalisation? Ni aucun lo
 
 &lt;&lt;back &quot;Je retourne à l&#39;aventure&quot;&gt;&gt;
 </tw-passagedata>
-<tw-passagedata pid="15" name="StoryBanner" tags="" position="1265,233">Bienvenue dans mon...</tw-passagedata>
-<tw-passagedata pid="16" name="tegenaire" tags="jardin" position="476,294">!Au secours !
+<tw-passagedata pid="14" name="StoryBanner" tags="" position="1265,232">Bienvenue dans mon...</tw-passagedata>
+<tw-passagedata pid="15" name="tegenaire" tags="jardin" position="476,294">!Au secours !
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -717,7 +711,7 @@ Par contre, l&#39;araignée s&#39;invite dans votre panier...&lt;&lt;addToInv &q
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="17" name="cigogne" tags="jardin" position="474,419">!Vive l&#39;Alsace
+<tw-passagedata pid="16" name="cigogne" tags="jardin" position="474,419">!Vive l&#39;Alsace
 Et le magnifique oiseau qui en est un des symboles...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -727,7 +721,7 @@ Et le magnifique oiseau qui en est un des symboles...
 &lt;&lt;/nobr&gt;&gt;
 *[[Je retourne au petit monde|maison]]
 </tw-passagedata>
-<tw-passagedata pid="18" name="champignons" tags="foret" position="513,803">!Aux champignons
+<tw-passagedata pid="17" name="champignons" tags="foret" position="513,803">!Aux champignons
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -737,7 +731,7 @@ Et le magnifique oiseau qui en est un des symboles...
 &lt;&lt;addToInv &quot;quelques belles girolles&quot;&gt;&gt;
 *[[Je retourne au petit monde|maison]]
 *[[Je prends le chemin qui s&#39;enfonce dans le bois|chevreuil]]</tw-passagedata>
-<tw-passagedata pid="19" name="affut" tags="jardin" position="599,547">!! Une chaise-affût
+<tw-passagedata pid="18" name="affut" tags="jardin" position="599,547">!! Une chaise-affût
 De là, bien camouflé, on peut observer et/ou photographier, tous les petits animaux du jardin. Oiseaux, grenouilles, hérissons...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -752,7 +746,7 @@ Et même tenter de les photographier en vol, comme cette mésange bleue.
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="20" name="chevreuil" tags="foret" position="380,809">!Brève rencontre
+<tw-passagedata pid="19" name="chevreuil" tags="foret" position="380,809">!Brève rencontre
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -764,7 +758,7 @@ Les chevreuils sont nombreaux dans le [[Neubruchwald|carte]]. Mais pas de sangli
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="21" name="grenouille" tags="jardin" position="467,550">!Grenouille
+<tw-passagedata pid="20" name="grenouille" tags="jardin" position="467,550">!Grenouille
 Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenouilles.
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -777,7 +771,7 @@ Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenoui
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="22" name="escalier" tags="maison" position="912,625">!Dans la maison
+<tw-passagedata pid="21" name="escalier" tags="maison" position="912,625">!Dans la maison
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -787,7 +781,7 @@ Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenoui
 *[[Je retourne au petit monde|maison]]
 * Ou on continue [[jusqu&#39;au salon|salon]] ?
 </tw-passagedata>
-<tw-passagedata pid="23" name="salon" tags="maison" position="912,750">!Au salon
+<tw-passagedata pid="22" name="salon" tags="maison" position="912,750">!Au salon
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -795,7 +789,7 @@ Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenoui
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
 *[[Je retourne au petit monde|maison]]</tw-passagedata>
-<tw-passagedata pid="24" name="rouge-gorge" tags="jardin" position="599,678">!Robin
+<tw-passagedata pid="23" name="rouge-gorge" tags="jardin" position="599,678">!Robin
 Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom !&lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
@@ -807,11 +801,11 @@ Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom 
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="25" name="inventaire" tags="" position="1328,508">
+<tw-passagedata pid="24" name="inventaire" tags="" position="1328,508">
 &lt;&lt;if $inventory.length == 0&gt;&gt;Vous n&#39;avez rien. Rien du tout.&lt;&lt;else&gt;&gt;&#39;&#39;Vous avez en votre possession :&#39;&#39;
 &lt;&lt;listInv&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="26" name="victoire" tags="nuit" position="1192,362">!Vous avez gagné !
+<tw-passagedata pid="25" name="victoire" tags="nuit" position="1192,362">!Vous avez gagné !
 &lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;La Victoire guidant le peuple - Burgermac - 2016 &lt;/figcaption&gt;
