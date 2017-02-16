@@ -395,6 +395,13 @@ l10nStrings.macroBackText   = 'En arrière';
 l10nStrings.macroReturnText = 'Retour'
 Config.ui.stowBarInitially = 1024;
 
+/*! Passage Override en cas de victoire */
+Config.navigation.override = function (passageName) {
+	if (State.variables.animaux = 7) {
+		return "victoire";
+	}
+};
+
 /*! Paramètres audio */
 var audioEnabledHandler = function () {
 	if (!settings.audioEnabled) { // is false
@@ -640,7 +647,7 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 	Dialog.open();
 	&lt;&lt;/script&gt;&gt;
 &lt;&lt;/click&gt;&gt;
-[[Crédits|credit]]
+[[Crédits|credits]]
 [[Victoire|victoire]]
 &lt;&lt;click &quot;Variables&quot;&gt;&gt;&lt;&lt;checkvars&gt;&gt;&lt;&lt;/click&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="10" name="carte" tags="" position="1078,505">!Localisation
@@ -683,10 +690,17 @@ Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en
 &lt;figcaption&gt;Selfie gore - P. Kessler - 2016 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
-Bientôt sur cette page la liste des &#39;&#39;auteurs&#39;&#39; pour :
-* les textes
-* les musiques
-* les photos
+Une aventure réalisée grâce aux outils et documents suivants :
+* &#39;&#39;Linux Mint&#39;&#39; pour le système
+* &#39;&#39;Twine 2.0.11&#39;&#39; et &#39;&#39;Sugarcube 2.1.3&#39;&#39; pour l&#39;histoire interactive
+* &#39;&#39;Atom&#39;&#39; pour l&#39;édition de codes
+* &#39;&#39;Git&#39;&#39; et &#39;&#39;Github&#39;&#39; pour le //versionning// et l&#39;hébergement
+* &#39;&#39;The Gimp&#39;&#39; pour le traitement des images
+* et &#39;&#39;Audacity&#39;&#39; pour celui des sons.
+* Les ambiances sonores ont été créées par &#39;&#39;Bensound&#39;&#39;.
+
+Et aucun animal n&#39;a été maltraité pendant cette réalisation? Ni aucun logiciel propriétaire utilisé...
+
 &lt;&lt;back &quot;Je retourne à l&#39;aventure&quot;&gt;&gt;
 </tw-passagedata>
 <tw-passagedata pid="15" name="StoryBanner" tags="" position="1265,233">Bienvenue dans mon...</tw-passagedata>
@@ -797,19 +811,14 @@ Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom 
 &lt;&lt;if $inventory.length == 0&gt;&gt;Vous n&#39;avez rien. Rien du tout.&lt;&lt;else&gt;&gt;&#39;&#39;Vous avez en votre possession :&#39;&#39;
 &lt;&lt;listInv&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="26" name="victoire" tags="nuit" position="1192,362">!Vous avez gagné  
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
+<tw-passagedata pid="26" name="victoire" tags="nuit" position="1192,362">!Vous avez gagné !
+&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;La Victoire guidant le peuple - Burgermac - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
-Vous avez su trouver les sept animaux. &#39;&#39;Bravo&#39;&#39;.  
-
-Si vous voulez recommencer la partie, cliquez sur le bouton corresondant dans la barre latérale. Sinon, fermez simplement votre navigateur.
-
+&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+Vous avez su trouver les sept animaux. &#39;&#39;Bravo&#39;&#39;!    
+Si vous voulez recommencer la partie, cliquez sur le bouton corresondant dans la barre latérale. Sinon, fermez simplement votre navigateur.  
 Et merci de votre visite dans ce &#39;&#39;mini-monde&#39;&#39;.</tw-passagedata>
-<tw-passagedata pid="27" name="credit" tags="" position="953,500">Double-cliquez sur ce passage pour le modifier.</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">
