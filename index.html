@@ -398,7 +398,7 @@ Config.ui.stowBarInitially = 1024;
 
 /*! Passage Override en cas de victoire */
 Config.navigation.override = function (passageName) {
-	if (State.variables.animaux == 7) {
+	if (State.variables.animaux == State.variables.max_animaux) {
 			return "victoire";
 	}
 };
@@ -411,6 +411,13 @@ var audioEnabledHandler = function () {
 			when the setting is disabled.
 		*/
 		new Wikifier(null, "<<masteraudio stop>>");
+	}
+	if (settings.audioEnabled) { // is false
+		/*
+			Stops all audio currently playing, via `<<audio>>` or `<<playlist>>`,
+			when the setting is disabled.
+		*/
+		new Wikifier(null, "<<audio $track play>>");
 	}
 };
 Setting.addToggle("audioEnabled", {
@@ -514,7 +521,7 @@ Macro.add("listInv", {
 
 
 
-</script><tw-passagedata pid="1" name="start" tags="nuit" position="792,196">!Mini-monde
+</script><tw-passagedata pid="1" name="start" tags="nuit" position="800.0001,250">!Mini-monde
 &lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Le jour se lève - P. Kessler - 2016 &lt;/figcaption&gt;
@@ -548,7 +555,7 @@ Animaux vus (sur $max_animaux) : $animaux</tw-passagedata>
 &lt;&lt;set $points to 0&gt;&gt;
 &lt;&lt;set $experience to 10&gt;&gt;
 &lt;&lt;set $animaux to 0&gt;&gt;
-&lt;&lt;set $max_animaux to 7&gt;&gt;
+&lt;&lt;set $max_animaux to 8&gt;&gt;
 &lt;&lt;set $online_medias_url to &quot;https://pierre-67.github.io/morceau_de_sucre/medias/&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;nuit&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/start.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;maison&quot; &quot;https://pierre-67.github.io/morceau_de_sucre/medias/maison.mp3&quot;&gt;&gt;
@@ -578,7 +585,7 @@ Je mets un de ces champignons dans mon panier, puis...
 &lt;figcaption&gt;Little Planet - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
-* Vous avez &#39;&#39;20 secondes&#39;&#39; pour parcourir l&#39;image ci-dessus avec la souris et trouver les &#39;&#39;six&#39;&#39; points cliquables pour poursuivre votre exploration. Pour &#39;&#39;gagner la partie&#39;&#39; il vous fudra rencontrer &#39;&#39;sept&#39;&#39; animaux différents.
+* Vous avez &#39;&#39;20 secondes&#39;&#39; pour parcourir l&#39;image ci-dessus avec la souris et trouver les &#39;&#39;six&#39;&#39; points cliquables pour poursuivre votre exploration. Pour &#39;&#39;gagner la partie&#39;&#39; il vous faudra rencontrer &#39;&#39;huit&#39;&#39; animaux différents.
 * Vous pouvez aussi en découvrir la [[localisation|carte]] sur OpenStreetMap
 &lt;&lt;timed 20s &gt;&gt;!!!C&#39;est bien trop lent !!! Désolé, je choisis pour vous.
 &lt;&lt;next 5s &gt;&gt;&lt;&lt;goto _choix &gt;&gt;
@@ -592,49 +599,40 @@ Je mets un de ces champignons dans mon panier, puis...
     &lt;area alt=&quot;Escalier&quot; title=&quot;Escalier&quot; data-passage=&quot;escalier&quot; coords=&quot;198,412,330,478&quot; shape=&quot;rect&quot; /&gt;
 &lt;/map&gt;</tw-passagedata>
 <tw-passagedata pid="6" name="bagnole" tags="jardin" position="607,109">!La bagnole
-Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
+&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Le roi boit - P. Kessler - 2012 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 *[[Je retourne au petit monde|maison]]
-&lt;&lt;nobr&gt;&gt;
+Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata>
+</tw-passagedata>
 <tw-passagedata pid="7" name="compost" tags="jardin" position="604,297">!Le compost
-C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets en putréfaction...
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Lézard au naturel sur son lit de compost - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
+C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets en putréfaction...  
 *[[Je creuse un peu...|tegenaire]]
 *[[Je retourne au petit monde|maison]]
-&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata>
+&lt;&lt;/if&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="8" name="grange" tags="jardin" position="599,422">!La grange
-Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des visiteurs sympas...
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
+&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;L&#39;envol - P. Kessler - 2013 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des visiteurs sympas...  
 *[[Je veux observer la cigogne|cigogne]]
 *[[Je retourne au petit monde|maison]]
-&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata>
+&lt;&lt;/if&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="9" name="StoryMenu" tags="" position="1009,357">[[Vue sur la planète|maison]]
 [[En forêt|promenade]]
 [[Affût dans le jardin|affut]]
@@ -657,22 +655,26 @@ Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en
 </tw-passagedata>
 <tw-passagedata pid="11" name="PassageHeader" tags="" position="1138,102">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;
-
-&lt;&lt;if tags().includes(&quot;silence&quot;)&gt;&gt;
-	&lt;&lt;audio &quot;:playing&quot; pause&gt;&gt;
-&lt;&lt;elseif tags().includes(&quot;nuit&quot;)&gt;&gt;
-	&lt;&lt;set $track to &quot;nuit&quot;&gt;&gt;
-&lt;&lt;elseif tags().includes(&quot;maison&quot;)&gt;&gt;
-	&lt;&lt;set $track to &quot;maison&quot;&gt;&gt;
-&lt;&lt;elseif tags().includes(&quot;jardin&quot;)&gt;&gt;
-	&lt;&lt;set $track to &quot;jardin&quot;&gt;&gt;	
-&lt;&lt;elseif tags().includes(&quot;foret&quot;)&gt;&gt;
-   	&lt;&lt;set $track to &quot;foret&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-&lt;&lt;if ($track neq $last_track)&gt;&gt;
-	&lt;&lt;audio &quot;:playing&quot; stop&gt;&gt;
-	&lt;&lt;audio $track loop play&gt;&gt;
-	&lt;&lt;set $last_track to $track&gt;&gt;
+&lt;&lt;if settings.audioEnabled&gt;&gt;
+	&lt;&lt;if tags().includes(&quot;silence&quot;)&gt;&gt;
+		&lt;&lt;audio &quot;:playing&quot; pause&gt;&gt;
+	&lt;&lt;elseif tags().includes(&quot;nuit&quot;)&gt;&gt;
+		&lt;&lt;set $track to &quot;nuit&quot;&gt;&gt;
+	&lt;&lt;elseif tags().includes(&quot;maison&quot;)&gt;&gt;
+		&lt;&lt;set $track to &quot;maison&quot;&gt;&gt;
+	&lt;&lt;elseif tags().includes(&quot;jardin&quot;)&gt;&gt;
+		&lt;&lt;set $track to &quot;jardin&quot;&gt;&gt;	
+	&lt;&lt;elseif tags().includes(&quot;foret&quot;)&gt;&gt;
+   		&lt;&lt;set $track to &quot;foret&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+	&lt;&lt;if ($track neq $last_track)&gt;&gt;
+		&lt;&lt;audio &quot;:playing&quot; stop&gt;&gt;
+		&lt;&lt;audio $track loop play&gt;&gt;
+		&lt;&lt;set $last_track to $track&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+	&lt;&lt;masteraudio stop&gt;&gt;
+	&lt;&lt;/if&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/silently&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="12" name="PassageFooter" tags="" position="1012,99">&lt;hr /&gt;
@@ -685,17 +687,17 @@ Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
 Une aventure réalisée grâce aux outils et documents suivants :
-* &#39;&#39;Linux Mint&#39;&#39; pour le système
-* &#39;&#39;Twine 2.0.11&#39;&#39; et &#39;&#39;Sugarcube 2.1.3&#39;&#39; pour l&#39;histoire interactive
-* &#39;&#39;Atom&#39;&#39; pour l&#39;édition de codes
-* &#39;&#39;Git&#39;&#39; et &#39;&#39;Github&#39;&#39; pour le //versionning// et l&#39;hébergement
-* &#39;&#39;The Gimp&#39;&#39; pour le traitement des images
-* et &#39;&#39;Audacity&#39;&#39; pour celui des sons.
-* Les ambiances sonores ont été créées par &#39;&#39;Bensound&#39;&#39;.
-
+* [[Linux Mint|https://www.linuxmint.com/]] pour le système
+* [[Twine 2.0.11|https://twinery.org]] et [[Sugarcube 2.1.3|http://www.motoslave.net/sugarcube/2/]] pour l&#39;histoire interactive
+* [[Atom|https://atom.io/]] pour l&#39;édition de codes
+* [[Git|https://git-scm.com/]] et [[Github|https://github.com/]] pour le //versionning// et l&#39;hébergement
+* [[The Gimp|https://www.gimp.org/]] pour le traitement des images
+* et [[Audacity|http://audacity.fr/]] pour celui des sons.
+* Les ambiances sonores ont été créées par [[Bensound|http://www.bensound.com/]]. 
+* Les crédits des photographies sont indiqués sous chacune d&#39;elles.
+* Un grand merci aux animateurs du [[forum Twine|https://twinery.org/forum]] pour leurs précieux conseils distillés quasi-quotidiennement.
 Et aucun animal n&#39;a été maltraité pendant cette réalisation? Ni aucun logiciel propriétaire utilisé...
-
-&lt;&lt;back &quot;Je retourne à l&#39;aventure&quot;&gt;&gt;
+* &lt;&lt;back &quot;Je retourne à l&#39;aventure&quot;&gt;&gt;
 </tw-passagedata>
 <tw-passagedata pid="14" name="StoryBanner" tags="" position="1265,232">Bienvenue dans mon...</tw-passagedata>
 <tw-passagedata pid="15" name="tegenaire" tags="jardin" position="476,294">!Au secours !
@@ -712,34 +714,29 @@ Par contre, l&#39;araignée s&#39;invite dans votre panier...&lt;&lt;addToInv &q
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="16" name="cigogne" tags="jardin" position="474,419">!Vive l&#39;Alsace
-Et le magnifique oiseau qui en est un des symboles...
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
+&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Cigogne en vol - P. Kessler - 2013 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+Et le magnifique oiseau qui en est un des symboles...
 *[[Je retourne au petit monde|maison]]
 </tw-passagedata>
 <tw-passagedata pid="17" name="champignons" tags="foret" position="513,803">!Aux champignons
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
+&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;En sous-bois - P. Kessler - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
-&lt;&lt;addToInv &quot;quelques belles girolles&quot;&gt;&gt;
+&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+Êtes-vous vous bien sûr que ces champignons sont comestibles ?  
 *[[Je retourne au petit monde|maison]]
-*[[Je prends le chemin qui s&#39;enfonce dans le bois|chevreuil]]</tw-passagedata>
+*[[Je prends le chemin qui s&#39;enfonce dans le bois|chevreuil]]
+&lt;&lt;addToInv &quot;quelques belles girolles&quot;&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="18" name="affut" tags="jardin" position="599,547">!! Une chaise-affût
-De là, bien camouflé, on peut observer et/ou photographier, tous les petits animaux du jardin. Oiseaux, grenouilles, hérissons...
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
+&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Envol de mésange bleue - P. Kessler - 2015 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 Et même tenter de les photographier en vol, comme cette mésange bleue.
+De là, bien camouflé, on peut observer et/ou photographier, tous les petits animaux du jardin. Oiseaux, grenouilles, hérissons...  
 *[[Je retourne au petit monde|maison]]
 *Je jette un coup d&#39;œil [[aux grenouilles|grenouille]]
 *Je n&#39;ai pas encore vu Robin le [[rouge-gorge|rouge-gorge]]
@@ -759,13 +756,11 @@ Les chevreuils sont nombreaux dans le [[Neubruchwald|carte]]. Mais pas de sangli
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="20" name="grenouille" tags="jardin" position="467,550">!Grenouille
-Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenouilles.
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
+&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Un œil d&#39;or - P. Kessler - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenouilles.  
 *[[Je retourne au petit monde|maison]]
 *Non, non ! Encore [[un peu d&#39;affût|affut]]
 &lt;&lt;if visited() is 1 &gt;&gt;
@@ -790,12 +785,11 @@ Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenoui
 &lt;&lt;/nobr&gt;&gt;
 *[[Je retourne au petit monde|maison]]</tw-passagedata>
 <tw-passagedata pid="23" name="rouge-gorge" tags="jardin" position="599,678">!Robin
-Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom !&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
+&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Robin : portrait au seau - P. Kessler - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom !
 *[[Je retourne au petit monde|maison]]
 *Non, non ! Encore [[un peu d&#39;affût|affut]] ou alors, [[un coup d&#39;œil au tas de compost|compost]]...
 &lt;&lt;if visited() is 1 &gt;&gt;
@@ -812,7 +806,8 @@ Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom 
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 Vous avez su trouver les sept animaux. &#39;&#39;Bravo&#39;&#39;!    
 Si vous voulez recommencer la partie, cliquez sur le bouton corresondant dans la barre latérale. Sinon, fermez simplement votre navigateur.  
-Et merci de votre visite dans ce &#39;&#39;mini-monde&#39;&#39;.</tw-passagedata>
+Et merci de votre visite dans ce &#39;&#39;mini-monde&#39;&#39;.
+&lt;&lt;set $animaux to 0&gt;&gt;</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">
