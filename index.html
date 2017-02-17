@@ -120,7 +120,16 @@ body.nuit {
 	background-image: linear-gradient(to bottom, #333 10%, white 100%);
 }
 .nuit>h1 {color:white;}
-
+#countdown {
+	color: red;
+	font-size: 1.5em;
+	border: 1px solid #999;
+	padding: 2px;
+	background-color: black;
+}
+.maison .macro-linkreplace {
+		font-size: 1.3em;
+}	
 a {
 	color: #35c;
 }
@@ -345,6 +354,8 @@ nuit> figcaption {color:white !important}
 
 
 
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/*! Traduction de Sugarcube */
 l10nStrings.identity = 'aventure';
 l10nStrings.aborting = 'Echec';
@@ -428,6 +439,8 @@ Setting.addToggle("audioEnabled", {
 	onInit   : audioEnabledHandler,
 	onChange : audioEnabledHandler
 });
+
+
 
 /*! Gestion de l'inventaire */
 Macro.add([ "initInv", "emptyInv" ], {
@@ -525,7 +538,9 @@ Macro.add("listInv", {
 
 
 
-</script><tw-passagedata pid="1" name="start" tags="nuit" position="800,250">!Mini-monde
+
+
+</script><tw-passagedata pid="1" name="start" tags="nuit" position="778,200">!Mini-monde
 &lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Le jour se lève - P. Kessler - 2016 &lt;/figcaption&gt;
@@ -553,8 +568,9 @@ Les documents //medias// seront, pour gagner du temps, disponibles en ligne sur 
 <tw-passagedata pid="2" name="StoryCaption" tags="" position="1140,227">&#39;&#39;Tableau de bord&#39;&#39;
 Points : $points
 Expérience : $experience
-Animaux vus (sur $max_animaux) : $animaux</tw-passagedata>
-<tw-passagedata pid="3" name="StoryInit" tags="" position="1013,224">&lt;&lt;initInv&gt;&gt;
+Animaux vus (sur $max_animaux) : $animaux
+</tw-passagedata>
+<tw-passagedata pid="3" name="StoryInit" tags="" position="1263,102">&lt;&lt;initInv&gt;&gt;
 &lt;&lt;addToInv &quot;un petit panier en osier&quot;&gt;&gt;
 &lt;&lt;set $points to 0&gt;&gt;
 &lt;&lt;set $experience to 10&gt;&gt;
@@ -581,7 +597,7 @@ Je mets un de ces champignons dans mon panier, puis...
 * Je fais quelques pas et [[je retourne au petit monde|maison]] ?
 * Non, je veux ramasser [[encore quelques champignons|champignons]] ?
 &lt;&lt;set $experience to $experience+10&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="5" name="maison" tags="maison" position="778,429">!Balcon sur une mini-planète
+<tw-passagedata pid="5" name="maison" tags="maison" position="783,428">!Balcon sur une mini-planète
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;set _choix to either(&quot;compost&quot;, &quot;bagnole&quot;, &quot;grange&quot;, &quot;promenade&quot;, &quot;escalier&quot;)&gt;&gt;
 &lt;figure&gt;
@@ -589,20 +605,12 @@ Je mets un de ces champignons dans mon panier, puis...
 &lt;&lt;print $map_image&gt;&gt;
 &lt;figcaption&gt;Little Planet - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;&lt;if visited() gt 1 &gt;&gt;&lt;&lt;display &quot;chrono&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+	&lt;&lt;display &quot;mission&quot; &quot;span&quot;&gt;&gt;&#39;&#39;&lt;&lt;linkreplace &quot;J&#39;accepte&quot;&gt;&gt;&lt;&lt;remove &quot;.passage-mission&quot;&gt;&gt;&lt;&lt;display &quot;chrono&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&#39;&#39;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
-* Vous avez &#39;&#39;20 secondes&#39;&#39; pour parcourir l&#39;image ci-dessus avec la souris et trouver les &#39;&#39;six&#39;&#39; points cliquables pour poursuivre votre exploration. Pour &#39;&#39;gagner la partie&#39;&#39; il vous faudra rencontrer &#39;&#39;huit&#39;&#39; animaux différents.
-* Vous pouvez aussi en découvrir la [[localisation|carte]] sur OpenStreetMap
-&lt;&lt;timed 20s &gt;&gt;!!!C&#39;est bien trop lent !!! Désolé, je choisis pour vous.
-&lt;&lt;next 5s &gt;&gt;&lt;&lt;goto _choix &gt;&gt;
-&lt;&lt;/timed&gt;&gt;
-&lt;map name=&quot;map&quot;&gt;
-    &lt;area alt=&quot;Grange&quot; title=&quot;Grange&quot; data-passage=&quot;grange&quot; coords=&quot;77,203,189,118,179,81,186,75,148,59,5,113,3,156,35,210,59,196&quot; shape=&quot;poly&quot; /&gt;
-    &lt;area alt=&quot;Compost&quot; title=&quot;Compost&quot; data-passage=&quot;compost&quot; coords=&quot;80,353,21&quot; shape=&quot;circle&quot; /&gt;
-    &lt;area alt=&quot;Bagnole&quot; title=&quot;Bagnole&quot; data-passage=&quot;bagnole&quot; coords=&quot;521,140,577,208&quot; shape=&quot;rect&quot; /&gt;
-    &lt;area alt=&quot;Affût&quot; title=&quot;Affût&quot; data-passage=&quot;affut&quot; coords=&quot;409,165,444,200&quot; shape=&quot;rect&quot; /&gt;
-    &lt;area alt=&quot;Promenade&quot; title=&quot;Promenade&quot; data-passage=&quot;promenade&quot; coords=&quot;727,118,32&quot; shape=&quot;circle&quot; /&gt;
-    &lt;area alt=&quot;Escalier&quot; title=&quot;Escalier&quot; data-passage=&quot;escalier&quot; coords=&quot;198,412,330,478&quot; shape=&quot;rect&quot; /&gt;
-&lt;/map&gt;</tw-passagedata>
+</tw-passagedata>
 <tw-passagedata pid="6" name="bagnole" tags="jardin" position="607,109">!La bagnole
 &lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
@@ -638,7 +646,7 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="9" name="StoryMenu" tags="" position="1009,357">[[Vue sur la planète|maison]]
+<tw-passagedata pid="9" name="StoryMenu" tags="" position="1011,227">[[Vue sur la planète|maison]]
 [[En forêt|promenade]]
 [[Affût dans le jardin|affut]]
 [[Dans la maison|escalier]]
@@ -683,7 +691,7 @@ Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/silently&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="12" name="PassageFooter" tags="" position="1012,99">&lt;hr /&gt;
-&lt;small&gt;Réalisé avec &#39;&#39;Twine&#39;&#39; - P. Kessler - janvier 2017&lt;/small&gt;</tw-passagedata>
+&lt;small&gt;Réalisé avec &#39;&#39;[[Twine|https://twinery.org]]&#39;&#39; - P. Kessler - février 2017&lt;/small&gt;</tw-passagedata>
 <tw-passagedata pid="13" name="credits" tags="" position="1203,505">!Crédits
 &lt;&lt;nobr&gt;&gt;
 &lt;figure&gt;
@@ -800,11 +808,11 @@ Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom 
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="24" name="inventaire" tags="" position="1328,508">
+<tw-passagedata pid="24" name="inventaire" tags="" position="1518,231">
 &lt;&lt;if $inventory.length == 0&gt;&gt;Vous n&#39;avez rien. Rien du tout.&lt;&lt;else&gt;&gt;&#39;&#39;Vous avez en votre possession :&#39;&#39;
 &lt;&lt;listInv&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="25" name="victoire" tags="nuit" position="1192,362">!Vous avez gagné !
+<tw-passagedata pid="25" name="victoire" tags="nuit" position="1515,106">!Vous avez gagné !
 &lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;La Victoire guidant le peuple - Burgermac - 2016 &lt;/figcaption&gt;
@@ -813,6 +821,35 @@ Vous avez su trouver tous les animaux. &#39;&#39;Bravo&#39;&#39;!
 Si vous voulez recommencer la partie, cliquez sur le bouton corresondant dans la barre latérale. Sinon, fermez simplement votre navigateur.  
 Et merci de votre visite dans ce &#39;&#39;mini-monde&#39;&#39;.
 &lt;&lt;set $animaux to 0&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="26" name="chrono" tags="" position="1520.0001,356">* Il vous reste &#39;&#39;&lt;span id=&quot;countdown&quot;&gt;30&lt;/span&gt; secondes&#39;&#39; pour parcourir l&#39;image ci-dessus avec la souris\
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;set _seconds to 30&gt;&gt;
+    &lt;&lt;repeat 1s&gt;&gt;
+        &lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+        &lt;&lt;if _seconds gt 9&gt;&gt;
+            &lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_seconds&lt;&lt;/replace&gt;&gt;
+        &lt;&lt;elseif _seconds gt 0&gt;&gt;
+            &lt;&lt;replace &quot;#countdown&quot;&gt;&gt;0_seconds&lt;&lt;/replace&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+            &lt;&lt;goto _choix&gt;&gt;
+            &lt;&lt;stop&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+    &lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
+&lt;map name=&quot;map&quot;&gt;
+&lt;area alt=&quot;Grange&quot; title=&quot;Grange&quot; data-passage=&quot;grange&quot; coords=&quot;77,203,189,118,179,81,186,75,148,59,5,113,3,156,35,210,59,196&quot; shape=&quot;poly&quot; /&gt;
+&lt;area alt=&quot;Compost&quot; title=&quot;Compost&quot; data-passage=&quot;compost&quot; coords=&quot;80,353,21&quot; shape=&quot;circle&quot; /&gt;
+&lt;area alt=&quot;Bagnole&quot; title=&quot;Bagnole&quot; data-passage=&quot;bagnole&quot; coords=&quot;521,140,577,208&quot; shape=&quot;rect&quot; /&gt;
+&lt;area alt=&quot;Affût&quot; title=&quot;Affût&quot; data-passage=&quot;affut&quot; coords=&quot;409,165,444,200&quot; shape=&quot;rect&quot; /&gt;
+&lt;area alt=&quot;Promenade&quot; title=&quot;Promenade&quot; data-passage=&quot;promenade&quot; coords=&quot;727,118,32&quot; shape=&quot;circle&quot; /&gt;
+&lt;area alt=&quot;Escalier&quot; title=&quot;Escalier&quot; data-passage=&quot;escalier&quot; coords=&quot;198,412,330,478&quot; shape=&quot;rect&quot; /&gt;
+&lt;/map&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="27" name="mission" tags="" position="1519,487">!! Si vous acceptez cette mission, vous devez :
+* Trouver l&#39;un des &#39;&#39;six&#39;&#39; points cliquables dans le panorama ci-dessus pour poursuivre votre exploration. 
+* Débusquer &#39;&#39;huit&#39;&#39; animaux différents pour &#39;&#39;gagner la partie&#39;&#39;.
+* Vous pouvez aussi découvrir la [[localisation|carte]] du Mini-monde sur OpenStreetMap\</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">
