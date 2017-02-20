@@ -152,6 +152,10 @@ button:disabled {
 	background-color: #ccc;
 	border-color: #aaa;
 }
+#start : {
+	background-color: #fff !important;
+	border-color: #333;
+}
 input, select, textarea {
 	color: #111;
 	border-color: #ccc;
@@ -356,6 +360,7 @@ nuit> figcaption {color:white !important}
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/*! Traduction de Sugarcube */
 l10nStrings.identity = 'aventure';
 l10nStrings.aborting = 'Echec';
@@ -495,6 +500,40 @@ Macro.add("listInv", {
 /*! <<checkvars>> macro for SugarCube 2.x */
 !function(){"use strict";if("undefined"==typeof version||"undefined"==typeof version.title||"SugarCube"!==version.title||"undefined"==typeof version.major||version.major<2)throw new Error("<<checkvars>> macro requires SugarCube 2.0 or greater, aborting load");Macro.add("checkvars",{handler:function(){function toString(value,indent){var baseType=typeof value;switch(baseType){case"number":return isNaN(value)?"NaN":isFinite(value)?String(value):"Infinity";case"string":return JSON.stringify(value);case"function":return"(function)";default:if("object"!==baseType||null==value)return String(value);var objType=Object.prototype.toString.call(value);if("[object Date]"===objType)return'(object: Date, value: "'+value.toISOString()+'")';if("[object RegExp]"===objType)return"(object: RegExp, value: "+value.toString()+")";var opener,closer,result=[],indentText="  ";return indent||(indent=""),("[object Set]"===objType||value instanceof Set)&&(value=Array.from(value)),Array.isArray(value)?(opener="[\n",closer="\n"+indent+"]",value.forEach(function(p,i){result.push(indent+indentText+i+" ⇒ "+toString(value[i],indent+indentText))}),Object.keys(value).forEach(function(p){/^\d+$/.test(p)||result.push(indent+indentText+toString(p)+" ⇒ "+toString(value[p],indent+indentText))})):"[object Map]"===objType||value instanceof Map?(opener="{\n",closer="\n"+indent+"}",Array.from(value).map(function(kv){result.push(indent+indentText+toString(kv[0],indent+indentText)+" ⇒ "+toString(kv[1],indent+indentText))})):(opener="{\n",closer="\n"+indent+"}",Object.keys(value).forEach(function(p){result.push(indent+indentText+toString(p)+" ⇒ "+toString(value[p],indent+indentText))})),opener+result.join(",\n")+closer}}var dialog,sv=State.variables,names=Object.keys(sv);if(dialog=UI.setup("Story $variables","checkvars"),0===names.length)return dialog.innerHTML="<h1>Story $variables (<code>State.variables</code>):</h1><p><em>No $variables currently set…</em></p>",void UI.open();dialog.innerHTML="<h1>Story $variables (<code>State.variables</code>):</h1><table><thead><tr><th>Name</th><th>Value</th></tr></thead><tbody></tbody></table>"+(/applewebkit|chrome/.test(Browser.userAgent)?"":'<div class="scroll-pad">&nbsp;</div>');var tbody=dialog.querySelector("tbody");names.sort(function(a,b){return Util.isNumeric(a)&&Util.isNumeric(b)?Number(a)-Number(b):a.localeCompare(b)});for(var i=0;i<names.length;i++){var tr=document.createElement("tr"),tdName=document.createElement("td"),tdValue=document.createElement("td");tdName.textContent="$"+names[i],tdValue.textContent=toString(sv[names[i]]),tr.appendChild(tdName),tr.appendChild(tdValue),tbody.appendChild(tr)}UI.open()}})}();
 
+Macro.add('mousegoto', {
+	tags    : null,
+	handler : function () {
+		if (this.args.length === 0) {
+			return this.error('no passage specified');
+		}
+
+		var passage;
+
+		if (typeof this.args[0] === 'object') {
+			// Argument was in wiki link syntax.
+			passage = this.args[0].link;
+		}
+		else {
+			// Argument was simply the passage name.
+			passage = this.args[0];
+		}
+
+		if (!Story.has(passage)) {
+			return this.error('passage "' + passage + '" does not exist');
+		}
+
+		jQuery(document.createElement('span'))
+			.addClass('macro-' + this.name + ' ' + this.name)
+			.wiki(this.payload[0].contents)
+			.one('mouseover.macros', function () {
+				setTimeout(function () {
+					Engine.play(passage);
+				}, Engine.minDomActionDelay);
+			})
+			.appendTo(this.output);
+	}
+});
+
 
 
 
@@ -546,7 +585,8 @@ Macro.add("listInv", {
 &lt;figcaption&gt;Le jour se lève - P. Kessler - 2016 &lt;/figcaption&gt;
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 Un démonstrateur des possibilités du format *SugarCube 2* dans Twine. Cliquez sur la &#39;&#39;flèche&#39;&#39; à votre gauche pour faire apparaître le menu. Voyez aussi le [[dépôt Github|https://github.com/pierre-67/morceau_de_sucre]].
-* Prêt à [[découvrir mon petit monde|maison]] ?
+!!!Prêt à [[découvrir mon petit monde|maison]] ?
+----
 !!Fonctionnalités proposées ici
 * Traduction en français de la barre de menu latérale et des différentes commandes
 * CSS alternative claire
@@ -796,6 +836,7 @@ Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenoui
 &lt;figcaption&gt;Salon panoramique - P. Kessler - 2015 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
+Rien de bien particulier ici. Mais surtout, n&#39;allez pas fureter avec votre souris dans &lt;&lt;mousegoto &quot;perdu&quot;&gt;&gt;les &#39;&#39;tiroirs du bureau&#39;&#39;&lt;&lt;/mousegoto&gt;&gt; !
 *[[Je retourne au petit monde|maison]]</tw-passagedata>
 <tw-passagedata pid="23" name="rouge-gorge" tags="jardin" position="599,678">!Robin
 &lt;&lt;nobr&gt;&gt;&lt;figure&gt;
@@ -818,10 +859,11 @@ Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom 
 &lt;figcaption&gt;La Victoire guidant le peuple - Burgermac - 2016 &lt;/figcaption&gt;
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 Vous avez su trouver tous les animaux. &#39;&#39;Bravo&#39;&#39;!    
+----
 Si vous voulez recommencer la partie, cliquez sur le bouton corresondant dans la barre latérale. Sinon, fermez simplement votre navigateur.  
 Et merci de votre visite dans ce &#39;&#39;mini-monde&#39;&#39;.
 &lt;&lt;set $animaux to 0&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="26" name="chrono" tags="" position="1520.0001,356">* Il vous reste &#39;&#39;&lt;span id=&quot;countdown&quot;&gt;30&lt;/span&gt; secondes&#39;&#39; pour parcourir l&#39;image ci-dessus avec la souris\
+<tw-passagedata pid="26" name="chrono" tags="" position="1520,356">* Il vous reste &#39;&#39;&lt;span id=&quot;countdown&quot;&gt;30&lt;/span&gt; secondes&#39;&#39; pour parcourir l&#39;image ci-dessus avec la souris\
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;set _seconds to 30&gt;&gt;
     &lt;&lt;repeat 1s&gt;&gt;
@@ -850,6 +892,16 @@ Et merci de votre visite dans ce &#39;&#39;mini-monde&#39;&#39;.
 * Trouver l&#39;un des &#39;&#39;six&#39;&#39; points cliquables dans le panorama ci-dessus pour poursuivre votre exploration. 
 * Débusquer &#39;&#39;huit&#39;&#39; animaux différents pour &#39;&#39;gagner la partie&#39;&#39;.
 * Vous pouvez aussi découvrir la [[localisation|carte]] du Mini-monde sur OpenStreetMap\</tw-passagedata>
+<tw-passagedata pid="28" name="perdu" tags="" position="1526.0001,612">!Vous avez perdu !
+&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
+[img[$image]]
+&lt;figcaption&gt;Vespula Germanica - P. Kessler - 2015 &lt;/figcaption&gt;
+&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+Vous avez trouvé un animal de trop : &#39;&#39;vous étiez pourtant prévenu(e)&#39;&#39;!    
+La piqûre de cette guêpe géante vous inflige d&#39;horribles souffrances. Vous n&#39;êtes plus en état de continuer la partie : il vous faut quitter le &#39;&#39;mini-monde&#39;&#39;.
+----
+Si vous voulez recommencer la partie, cliquez sur le bouton corresondant dans la barre latérale. Sinon, fermez simplement votre navigateur.  
+</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">
