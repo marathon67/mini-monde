@@ -634,7 +634,7 @@ Animaux vus (sur $max_animaux) : $animaux
 &lt;&lt;/nobr&gt;&gt;
 Je mets un de ces champignons dans mon panier, puis...
 &lt;&lt;addToInv &quot;un champignon vénéneux&quot;&gt;&gt;
-* Je fais quelques pas et [[je retourne au petit monde|maison]] ?
+* Je fais quelques pas et [[je retourne à ma fenêtre|maison]] ?
 * Non, je veux ramasser [[encore quelques champignons|champignons]] ?
 &lt;&lt;set $experience to $experience+10&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="5" name="maison" tags="maison" position="783,428">!Balcon sur une mini-planète
@@ -656,7 +656,7 @@ Je mets un de ces champignons dans mon panier, puis...
 [img[$image]]
 &lt;figcaption&gt;Le roi boit - P. Kessler - 2012 &lt;/figcaption&gt;
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
-*[[Je retourne au petit monde|maison]]
+*[[Je retourne à ma fenêtre|maison]]
 Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
@@ -671,7 +671,7 @@ Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 &lt;&lt;/nobr&gt;&gt;
 C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets en putréfaction...  
 *[[Je creuse un peu...|tegenaire]]
-*[[Je retourne au petit monde|maison]]
+*[[Je retourne à ma fenêtre|maison]]
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
@@ -682,7 +682,7 @@ C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets e
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des visiteurs sympas...  
 *[[Je veux observer la cigogne|cigogne]]
-*[[Je retourne au petit monde|maison]]
+*[[Je retourne à ma fenêtre|maison]]
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
@@ -762,7 +762,7 @@ Et aucun animal n&#39;a été maltraité pendant cette réalisation? Ni aucun lo
 &lt;&lt;/nobr&gt;&gt;
 Cette idée, aussi, d&#39;aller déranger la &#39;&#39;tégénaire&#39;&#39; ! Mais rassurez-vous, cette araignée-là est inoffensive. Enfin, pour l&#39;homme.
 Par contre, l&#39;araignée s&#39;invite dans votre panier...&lt;&lt;addToInv &quot;une araignée tégénaire&quot;&gt;&gt;
-*[[Je retourne au petit monde|maison]]
+*[[Je retourne à ma fenêtre|maison]]
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
@@ -772,7 +772,7 @@ Par contre, l&#39;araignée s&#39;invite dans votre panier...&lt;&lt;addToInv &q
 &lt;figcaption&gt;Cigogne en vol - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 Et le magnifique oiseau qui en est un des symboles...
-*[[Je retourne au petit monde|maison]]
+*[[Je retourne à ma fenêtre|maison]]
 </tw-passagedata>
 <tw-passagedata pid="17" name="champignons" tags="foret" position="513,803">!Aux champignons
 &lt;&lt;nobr&gt;&gt;&lt;figure&gt;
@@ -780,7 +780,7 @@ Et le magnifique oiseau qui en est un des symboles...
 &lt;figcaption&gt;En sous-bois - P. Kessler - 2016 &lt;/figcaption&gt;
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 Êtes-vous vous bien sûr que ces champignons sont comestibles ?  
-*[[Je retourne au petit monde|maison]]
+*[[Je retourne à ma fenêtre|maison]]
 *[[Je prends le chemin qui s&#39;enfonce dans le bois|chevreuil]]
 &lt;&lt;addToInv &quot;quelques belles girolles&quot;&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="18" name="affut" tags="jardin" position="599,547">!! Une chaise-affût
@@ -790,7 +790,7 @@ Et le magnifique oiseau qui en est un des symboles...
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 Et même tenter de les photographier en vol, comme cette mésange bleue.
 De là, bien camouflé, on peut observer et/ou photographier, tous les petits animaux du jardin. Oiseaux, grenouilles, hérissons...  
-*[[Je retourne au petit monde|maison]]
+*[[Je retourne à ma fenêtre|maison]]
 *Je jette un coup d&#39;œil [[aux grenouilles|grenouille]]
 *Je n&#39;ai pas encore vu Robin le [[rouge-gorge|rouge-gorge]]
 &lt;&lt;if visited() is 1 &gt;&gt;
@@ -804,7 +804,7 @@ De là, bien camouflé, on peut observer et/ou photographier, tous les petits an
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
 Les chevreuils sont nombreaux dans le [[Neubruchwald|carte]]. Mais pas de sangliers !
-*[[Je retourne au petit monde|maison]]
+*[[Je retourne à ma fenêtre|maison]]
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
@@ -814,7 +814,7 @@ Les chevreuils sont nombreaux dans le [[Neubruchwald|carte]]. Mais pas de sangli
 &lt;figcaption&gt;Un œil d&#39;or - P. Kessler - 2016 &lt;/figcaption&gt;
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenouilles.  
-*[[Je retourne au petit monde|maison]]
+*[[Je retourne à ma fenêtre|maison]]
 *Non, non ! Encore [[un peu d&#39;affût|affut]]
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
@@ -826,7 +826,7 @@ Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenoui
 &lt;figcaption&gt;Escalier - P. Kessler - 2015 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
-*[[Je retourne au petit monde|maison]]
+*[[Je retourne à ma fenêtre|maison]]
 * Ou on continue [[jusqu&#39;au salon|salon]] ?
 </tw-passagedata>
 <tw-passagedata pid="22" name="salon" tags="maison" position="912,750">!Au salon
@@ -837,14 +837,14 @@ Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenoui
 &lt;/figure&gt;
 &lt;&lt;/nobr&gt;&gt;
 Rien de bien particulier ici. Mais surtout, n&#39;allez pas fureter avec votre souris dans &lt;&lt;mousegoto &quot;perdu&quot;&gt;&gt;les &#39;&#39;tiroirs du bureau&#39;&#39;&lt;&lt;/mousegoto&gt;&gt; !
-*[[Je retourne au petit monde|maison]]</tw-passagedata>
+*[[Je retourne à ma fenêtre|maison]]</tw-passagedata>
 <tw-passagedata pid="23" name="rouge-gorge" tags="jardin" position="599,678">!Robin
 &lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Robin : portrait au seau - P. Kessler - 2016 &lt;/figcaption&gt;
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
 Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom !
-*[[Je retourne au petit monde|maison]]
+*[[Je retourne à ma fenêtre|maison]]
 *Non, non ! Encore [[un peu d&#39;affût|affut]] ou alors, [[un coup d&#39;œil au tas de compost|compost]]...
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
@@ -892,12 +892,12 @@ Et merci de votre visite dans ce &#39;&#39;mini-monde&#39;&#39;.
 * Trouver l&#39;un des &#39;&#39;six&#39;&#39; points cliquables dans le panorama ci-dessus pour poursuivre votre exploration. 
 * Débusquer &#39;&#39;huit&#39;&#39; animaux différents pour &#39;&#39;gagner la partie&#39;&#39;.
 * Vous pouvez aussi découvrir la [[localisation|carte]] du Mini-monde sur OpenStreetMap\</tw-passagedata>
-<tw-passagedata pid="28" name="perdu" tags="" position="1526.0001,612">!Vous avez perdu !
+<tw-passagedata pid="28" name="perdu" tags="nuit" position="1526.0001,612">!Vous avez perdu !
 &lt;&lt;nobr&gt;&gt;&lt;figure&gt;
 [img[$image]]
 &lt;figcaption&gt;Vespula Germanica - P. Kessler - 2015 &lt;/figcaption&gt;
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
-Vous avez trouvé un animal de trop : &#39;&#39;vous étiez pourtant prévenu(e)&#39;&#39;!    
+Vous avez trouvé un animal de trop : &#39;&#39;vous étiez pourtant prévenu(e)&#39;&#39; !    
 La piqûre de cette guêpe géante vous inflige d&#39;horribles souffrances. Vous n&#39;êtes plus en état de continuer la partie : il vous faut quitter le &#39;&#39;mini-monde&#39;&#39;.
 ----
 Si vous voulez recommencer la partie, cliquez sur le bouton corresondant dans la barre latérale. Sinon, fermez simplement votre navigateur.  
