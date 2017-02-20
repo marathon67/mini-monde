@@ -601,9 +601,9 @@ Un démonstrateur des possibilités du format *SugarCube 2* dans Twine. Cliquez 
 * Gestion d&#39;un inventaire
 * Gestion des paramètres du jeu
 * Gestion de points gagnés et d&#39;une victoire finale
+!!!!Importez ce jeu dans votre &#39;&#39;Twine&#39;&#39; pour découvrir tous les //snippets// de code à récupérer...
 
-Les documents //medias// seront, pour gagner du temps, disponibles en ligne sur un dépôt &#39;&#39;Github&#39;&#39;. Ou sur &#39;&#39;Flickr&#39;&#39;.
-&lt;&lt;audio $track loop play&gt;&gt;
+
 </tw-passagedata>
 <tw-passagedata pid="2" name="StoryCaption" tags="" position="1140,227">&#39;&#39;Tableau de bord&#39;&#39;
 Points : $points
@@ -647,7 +647,7 @@ Je mets un de ces champignons dans mon panier, puis...
 &lt;/figure&gt;
 &lt;&lt;if visited() gt 1 &gt;&gt;&lt;&lt;display &quot;chrono&quot;&gt;&gt;
 	&lt;&lt;else&gt;&gt;
-	&lt;&lt;display &quot;mission&quot; &quot;span&quot;&gt;&gt;&#39;&#39;&lt;&lt;linkreplace &quot;J&#39;accepte&quot;&gt;&gt;&lt;&lt;remove &quot;.passage-mission&quot;&gt;&gt;&lt;&lt;display &quot;chrono&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&#39;&#39;
+	&lt;&lt;display &quot;mission&quot; &quot;span&quot;&gt;&gt;&#39;&#39;&lt;&lt;linkreplace &quot;J&#39;accepte la mission&quot;&gt;&gt;&lt;&lt;remove &quot;.passage-mission&quot;&gt;&gt;&lt;&lt;display &quot;chrono&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&#39;&#39;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 </tw-passagedata>
@@ -656,8 +656,8 @@ Je mets un de ces champignons dans mon panier, puis...
 [img[$image]]
 &lt;figcaption&gt;Le roi boit - P. Kessler - 2012 &lt;/figcaption&gt;
 &lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
-*[[Je retourne à ma fenêtre|maison]]
 Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
+*[[Je retourne à ma fenêtre|maison]]
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -704,7 +704,7 @@ Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des 
 &lt;iframe width=&quot;700&quot; height=&quot;550&quot; frameborder=&quot;1&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; src=&quot;https://www.openstreetmap.org/export/embed.html?bbox=7.459974288940431%2C48.85861640881589%2C7.488255500793458%2C48.87061477566309&amp;amp;layer=mapnik&quot; style=&quot;border: 1px solid black&quot;&gt;&lt;/iframe&gt;
 Une carte proposée depuis le site OpenStreetMap sous forme d&#39;//iframe// incluse dans la page Twine. 
 Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en &#39;&#39;https&#39;&#39;.
-&lt;&lt;back &quot;Je retourne à l&#39;aventure&quot;&gt;&gt;
+* &lt;&lt;back &quot;Je retourne à l&#39;aventure&quot;&gt;&gt;
 </tw-passagedata>
 <tw-passagedata pid="11" name="PassageHeader" tags="" position="1138,102">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;
