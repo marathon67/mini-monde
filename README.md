@@ -12,6 +12,8 @@ Un démonstrateur de fonctionnalités pour le format **SugarCube 2** dans Twine.
 * Gestion d'une ambiance sonore et graphique
 * Temporisation
 * Gestion d'un inventaire
-* Gestion des paramètres du jeu
+* Gestion des paramètres du jeu...
 
-Voyez la [démo jouable](https://pierre-67.github.io/morceau_de_sucre/)
+Importez le fichier *index.html* dans votre propre Twine pour en décortiquer tous les snippets.
+
+Et voyez aussi la [démo jouable](https://marathon67.github.io/mini-monde/).
