@@ -120,15 +120,25 @@ body.maison {
 body.nuit {
 	background-image: linear-gradient(to bottom, #333 10%, white 100%);
 }
+h1 {
+	margin:0; padding:0
+}
 .passage>h1 {
 	font-family: 'Slackey', cursive;
 	font-size: 3.5em;
 	font-weight: normal;
+	line-height: 130%;
 }
 .nuit>h1 {
 	color:white;
 }
-
+.passage-mission>ul,.passage>ul {
+	list-style-type: none;
+	border-left:1px solid #999;
+}
+figure {
+	text-align: center;
+}
 #countdown {
 	color: red;
 	font-size: 1.5em;
@@ -174,7 +184,6 @@ input:hover, select:hover, textarea:hover {
 	background-color: #eee;
 	border-color: #111;
 }
-h1 {margin:0; padding:0}
 hr{ border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); }
 #story {
 	margin:0;
@@ -184,7 +193,6 @@ hr{ border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 
 	background-color: #eaa;
 	border-left-color: #d77;
 }
-
 #ui-bar {
 	background-color: #eee;
 	border-color: #ccc;
@@ -220,7 +228,6 @@ hr{ border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 
 	background-color: #ccc;
 	border-color: #111;
 }
-
 /* Default dialog styling */
 #ui-overlay {
 	background-color: #777;
@@ -239,7 +246,6 @@ hr{ border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 
 #ui-dialog-body hr {
 	background-color: #ccc;
 }
-
 /* List-based dialog styling */
 #ui-dialog-body.list li:not(:first-child) {
 	border-top-color: #ccc;
@@ -251,7 +257,6 @@ hr{ border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 
 	background-color: #ccc;
 	border-color: #111;
 }
-
 /* Saves dialog styling */
 #ui-dialog-body.saves > *:not(:first-child),
 #ui-dialog-body.saves tr:not(:first-child) {
@@ -260,7 +265,6 @@ hr{ border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 
 #ui-dialog-body.saves .empty {
 	color: #777;
 }
-
 /* Settings dialog styling */
 #ui-dialog-body.settings button[id|="setting-control"] {
 	color: #111;
@@ -278,12 +282,10 @@ hr{ border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 
 	background-color: #7c7;
 	border-color: #5a5;
 }
-
 #story-caption {
 	border : #ccc 1px solid;
 	padding : 3px;
 }
-
 #story-subtitle {
 	color: #666;
 	font-size: 0.8em
@@ -312,66 +314,31 @@ html.debug-view .debug.hidden,
 html.debug-view .debug.hidden .debug {
 	background-color: #bbb;
 }
-img {display: block; margin: 0 auto;}
-
+img {
+	display: block; margin: 0 auto;
+}
 figure, figcaption {
 display: block;
 font-style: italic;
 font-variant: small-caps;
 color: #000;
 }
-
-nuit> figcaption {color:white !important}
-
+nuit> figcaption {
+	color:white !important
+}
 /*! <<checkvars>> macro for SugarCube 2.x */
 #ui-dialog-body.checkvars{padding:1em}#ui-dialog-body.checkvars h1{font-size:1.5em;margin-top:0}#ui-dialog-body.checkvars table{border-collapse:collapse;border-spacing:0}#ui-dialog-body.checkvars thead tr{border-bottom:2px solid #ccc}#ui-dialog-body.checkvars tr:not(:first-child){border-top:1px solid #ccc}#ui-dialog-body.checkvars td,#ui-dialog-body.checkvars th{padding:.25em 1em}#ui-dialog-body.checkvars td:first-child,#ui-dialog-body.checkvars th:first-child{padding-left:.5em;border-right:1px solid #ccc}#ui-dialog-body.checkvars td:last-child,#ui-dialog-body.checkvars th:last-child{padding-right:.5em}#ui-dialog-body.checkvars th:first-child{text-align:center}#ui-dialog-body.checkvars td:first-child{font-weight:700;text-align:right}#ui-dialog-body.checkvars td{font-family:monospace,monospace;vertical-align:top;white-space:pre-wrap}#ui-dialog-body.checkvars .scroll-pad{margin:0;padding:0}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">Macro.add("mytest", {
+    handler  : function () {
+        try {
+            console.log("This is a test.");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">/*! Traduction de Sugarcube */
+        } catch (e) {
+            return this.error("bad conditional expression: " + e.message);
+        }
+    }
+});
+/*! Traduction de Sugarcube */
 l10nStrings.identity = 'aventure';
 l10nStrings.aborting = 'Echec';
 l10nStrings.cancel   = 'Annuler';
@@ -590,12 +557,10 @@ Macro.add('mousegoto', {
 
 
 
-</script><tw-passagedata pid="1" name="start" tags="nuit" position="778,200">!Le Mini-Monde
-&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Le jour se lève - P. Kessler - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
-Un démonstrateur des possibilités du format *SugarCube 2* dans Twine. Cliquez sur la &#39;&#39;flèche&#39;&#39; à votre gauche pour faire apparaître le menu. Voyez aussi le [[dépôt Github|https://github.com/pierre-67/morceau_de_sucre]].
+
+</script><tw-passagedata pid="1" name="start" tags="nuit" position="776,202">!Le Mini-Monde
+&lt;&lt;auto-image &quot;Matins qui chantent - Pierre Kessler - 2017&quot;&gt;&gt;
+Un démonstrateur des possibilités du format *SugarCube 2* dans Twine. Cliquez sur la &#39;&#39;flèche&#39;&#39; à votre gauche pour faire apparaître le menu. Voyez aussi le [[dépôt Github|https://github.com/marathon67/mini-monde]].
 !!!Prêt à [[découvrir mon petit monde|maison]] ?
 ----
 !!Fonctionnalités proposées ici
@@ -612,7 +577,8 @@ Un démonstrateur des possibilités du format *SugarCube 2* dans Twine. Cliquez 
 * Gestion d&#39;un inventaire
 * Gestion des paramètres du jeu
 * Gestion de points gagnés et d&#39;une victoire finale...
-!!!!Importez ce jeu dans votre &#39;&#39;Twine&#39;&#39; pour découvrir tous les //snippets// de code à récupérer.</tw-passagedata>
+!!!!Importez ce jeu dans votre &#39;&#39;Twine&#39;&#39; pour découvrir tous les //snippets// de code à récupérer.
+&lt;&lt;mytest&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="2" name="StoryCaption" tags="" position="1140,227">&#39;&#39;Tableau de bord&#39;&#39;
 Points : $points
 Expérience : $experience
@@ -637,22 +603,17 @@ Animaux vus (sur $max_animaux) : $animaux
 &lt;&lt;set $max_animaux to 8&gt;&gt;
 </tw-passagedata>
 <tw-passagedata pid="4" name="promenade" tags="foret" position="660,803">!Aux champignons
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;En sous-bois - P. Kessler - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;En sous-bois - P. Kessler - 2016&quot;&gt;&gt;
 Je mets un de ces champignons dans mon panier, puis...
 &lt;&lt;addToInv &quot;un champignon vénéneux&quot;&gt;&gt;
 * Je fais quelques pas et [[je retourne à ma fenêtre|maison]] ?
 * Non, je veux ramasser [[encore quelques champignons|champignons]] ?
 &lt;&lt;set $experience to $experience+10&gt;&gt;</tw-passagedata>
-<tw-passagedata pid="5" name="maison" tags="maison" position="783,428">!Fenêtre sur mini-planète
+<tw-passagedata pid="5" name="maison" tags="maison" position="784,429">!Fenêtre sur mini-planète
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;set _choix to either(&quot;compost&quot;, &quot;bagnole&quot;, &quot;grange&quot;, &quot;promenade&quot;, &quot;escalier&quot;)&gt;&gt;
 &lt;figure&gt;
-&lt;&lt;set $map_image to &quot;&lt;img src=&quot;+$image+&quot; width=\&quot;760\&quot; height=\&quot;507\&quot; border=\&quot;0\&quot; usemap=\&quot;#map\&quot; /&gt;&quot;&gt;&gt;
+&lt;&lt;set $map_image to &quot;&lt;img src=&quot;+$online_medias_url+passage()+&quot;.jpg&quot;+&quot; width=\&quot;760\&quot; height=\&quot;507\&quot; border=\&quot;0\&quot; usemap=\&quot;#map\&quot; /&gt;&quot;&gt;&gt;
 &lt;&lt;print $map_image&gt;&gt;
 &lt;figcaption&gt;Little Planet - P. Kessler - 2013 &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -663,10 +624,7 @@ Je mets un de ces champignons dans mon panier, puis...
 &lt;&lt;/nobr&gt;&gt;
 </tw-passagedata>
 <tw-passagedata pid="6" name="bagnole" tags="jardin" position="607,109">!La bagnole
-&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Le roi boit - P. Kessler - 2012 &lt;/figcaption&gt;
-&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;Le roi boit - Pierre. Kessler - 2012 &quot;&gt;&gt;
 Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 *[[Je retourne à ma fenêtre|maison]]
 &lt;&lt;if visited() is 1 &gt;&gt;
@@ -674,12 +632,7 @@ Euh, non, je crois bien que c&#39;est une //Pigeot//, pas une //Coléo// !
 &lt;&lt;/if&gt;&gt;
 </tw-passagedata>
 <tw-passagedata pid="7" name="compost" tags="jardin" position="604,297">!Le compost
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Lézard au naturel sur son lit de compost - P. Kessler - 2013 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;Lézard au naturel sur son lit de compost - P. Kessler - 2013&quot;&gt;&gt; 
 C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets en putréfaction...  
 *[[Je creuse un peu...|tegenaire]]
 *[[Je retourne à ma fenêtre|maison]]
@@ -687,10 +640,7 @@ C&#39;est fou ce qu&#39;on peut trouver comme vie dans un gros tas de déchets e
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="8" name="grange" tags="jardin" position="599,422">!La grange
-&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;L&#39;envol - P. Kessler - 2013 &lt;/figcaption&gt;
-&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;L&#39;envol - P. Kessler - 2013&quot;&gt;&gt;
 Si la grange du voisin n&#39;est pas forcément décorative, elle a parfois des visiteurs sympas...  
 *[[Je veux observer la cigogne|cigogne]]
 *[[Je retourne à ma fenêtre|maison]]
@@ -717,8 +667,7 @@ Une carte proposée depuis le site OpenStreetMap sous forme d&#39;//iframe// inc
 Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en &#39;&#39;https&#39;&#39;.
 * &lt;&lt;back &quot;Je retourne à l&#39;aventure&quot;&gt;&gt;
 </tw-passagedata>
-<tw-passagedata pid="11" name="PassageHeader" tags="" position="1138,102">&lt;&lt;silently&gt;&gt;
-&lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;
+<tw-passagedata pid="11" name="PassageHeader" tags="" position="1138.0002,102">&lt;&lt;silently&gt;&gt;
 &lt;&lt;if settings.audioEnabled&gt;&gt;
 	&lt;&lt;if tags().includes(&quot;silence&quot;)&gt;&gt;
 		&lt;&lt;audio &quot;:playing&quot; pause&gt;&gt;
@@ -744,12 +693,7 @@ Attention, un iframe dans une page &#39;&#39;https&#39;&#39; doit être aussi en
 <tw-passagedata pid="12" name="PassageFooter" tags="" position="1012,99">&lt;hr /&gt;
 &lt;nobr&gt;&lt;small&gt;Réalisé avec &#39;&#39;[[Twine|https://twinery.org]]&#39;&#39; - P. Kessler - février 2017 -  Licence &lt;a href=&quot;https://creativecommons.org/licenses/by-nc-sa/3.0/fr/&quot;&gt;Creative Commons BY-NC-SA&lt;/a&gt;&lt;/small&gt;&lt;/nobr&gt;</tw-passagedata>
 <tw-passagedata pid="13" name="credits" tags="" position="1203,505">!Crédits
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Selfie gore - P. Kessler - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+Selfie gore - P. Kessler - 2016
 Une aventure réalisée grâce aux outils et documents suivants :
 * [[Linux Mint|https://www.linuxmint.com/]] pour le système
 * [[Twine 2.0.11|https://twinery.org]] et [[Sugarcube 2.1.3|http://www.motoslave.net/sugarcube/2/]] pour l&#39;histoire interactive
@@ -765,12 +709,7 @@ Et aucun animal n&#39;a été maltraité pendant cette réalisation? Ni aucun lo
 </tw-passagedata>
 <tw-passagedata pid="14" name="StoryBanner" tags="" position="1265,232">Bienvenue dans mon...</tw-passagedata>
 <tw-passagedata pid="15" name="tegenaire" tags="jardin" position="476,294">!Au secours !
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Araignée tégénaire - P. Kessler - 2013 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;Araignée tégénaire - P. Kessler - 2013&quot;&gt;&gt;
 Cette idée, aussi, d&#39;aller déranger la &#39;&#39;tégénaire&#39;&#39; ! Mais rassurez-vous, cette araignée-là est inoffensive. Enfin, pour l&#39;homme.
 Par contre, l&#39;araignée s&#39;invite dans votre panier...&lt;&lt;addToInv &quot;une araignée tégénaire&quot;&gt;&gt;
 *[[Je retourne à ma fenêtre|maison]]
@@ -778,29 +717,20 @@ Par contre, l&#39;araignée s&#39;invite dans votre panier...&lt;&lt;addToInv &q
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="16" name="cigogne" tags="jardin" position="474,419">!Vive l&#39;Alsace
-&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Cigogne en vol - P. Kessler - 2013 &lt;/figcaption&gt;
-&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;Cigogne en vol - P. Kessler - 2013&quot;&gt;&gt;
 Et le magnifique oiseau qui en est un des symboles...
 *[[Je retourne à ma fenêtre|maison]]
 </tw-passagedata>
 <tw-passagedata pid="17" name="champignons" tags="foret" position="513,803">!Aux champignons
-&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;En sous-bois - P. Kessler - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;En sous-bois - P. Kessler - 2016&quot;&gt;&gt;
 Êtes-vous vous bien sûr que ces champignons sont comestibles ?  
 *[[Je retourne à ma fenêtre|maison]]
 *[[Je prends le chemin qui s&#39;enfonce dans le bois|chevreuil]]
 &lt;&lt;addToInv &quot;quelques belles girolles&quot;&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="18" name="affut" tags="jardin" position="599,547">! Une chaise-affût
-&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Envol de mésange bleue - P. Kessler - 2015 &lt;/figcaption&gt;
-&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
-Et même tenter de les photographier en vol, comme cette mésange bleue.
+&lt;&lt;auto-image &quot;Envol de mésange bleue - P. Kessler - 2015&quot;&gt;&gt;
 De là, bien camouflé, on peut observer et/ou photographier, tous les petits animaux du jardin. Oiseaux, grenouilles, hérissons...  
+Et même tenter de les photographier en vol, comme cette mésange bleue.
 *[[Je retourne à ma fenêtre|maison]]
 *Je jette un coup d&#39;œil [[aux grenouilles|grenouille]]
 *Je n&#39;ai pas encore vu Robin le [[rouge-gorge|rouge-gorge]]
@@ -808,22 +738,14 @@ De là, bien camouflé, on peut observer et/ou photographier, tous les petits an
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="19" name="chevreuil" tags="foret" position="380,809">!Brève rencontre
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Brève rencontre - P. Kessler - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;Brève rencontre - P. Kessler - 2011&quot;&gt;&gt;
 Les chevreuils sont nombreaux dans le [[Neubruchwald|carte]]. Mais pas de sangliers !
 *[[Je retourne à ma fenêtre|maison]]
 &lt;&lt;if visited() is 1 &gt;&gt;
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="20" name="grenouille" tags="jardin" position="467,550">!Grenouille
-&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Un œil d&#39;or - P. Kessler - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;Un œil d&#39;or - P. Kessler - 2016&quot;&gt;&gt;
 Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenouilles.  
 *[[Je retourne à ma fenêtre|maison]]
 *Non, non ! Encore [[un peu d&#39;affût|affut]]
@@ -831,29 +753,16 @@ Un petit bassin de rien du tout, c&#39;est suffisant pour avoir quelques grenoui
 	&lt;&lt;set $animaux +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="21" name="escalier" tags="maison" position="912,625">!Dans la maison
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Escalier - P. Kessler - 2015 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;Escalier fish-eye - P. Kessler - 2015&quot;&gt;&gt;
 *[[Je retourne à ma fenêtre|maison]]
 * Ou on continue [[jusqu&#39;au salon|salon]] ?
 </tw-passagedata>
 <tw-passagedata pid="22" name="salon" tags="maison" position="912,750">!Au salon
-&lt;&lt;nobr&gt;&gt;
-&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Salon panoramique - P. Kessler - 2015 &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;Salon fish-eye - P. Kessler - 2015&quot;&gt;&gt;
 Rien de bien particulier ici. Mais surtout, n&#39;allez pas fureter avec votre souris dans &lt;&lt;mousegoto &quot;perdu&quot;&gt;&gt;les &#39;&#39;tiroirs du bureau&#39;&#39;&lt;&lt;/mousegoto&gt;&gt; !
 *[[Je retourne à ma fenêtre|maison]]</tw-passagedata>
 <tw-passagedata pid="23" name="rouge-gorge" tags="jardin" position="599,678">!Robin
-&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Robin : portrait au seau - P. Kessler - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;Robin : portrait au seau - P. Kessler - 2016&quot;&gt;&gt;
 Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom !
 *[[Je retourne à ma fenêtre|maison]]
 *Non, non ! Encore [[un peu d&#39;affût|affut]] ou alors, [[un coup d&#39;œil au tas de compost|compost]]...
@@ -865,10 +774,7 @@ Robin, c&#39;est le rouge-gorge du jardin. Si familier qu&#39;il a même un nom 
 &lt;&lt;listInv&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata>
 <tw-passagedata pid="25" name="victoire" tags="nuit" position="1515,106">!Vous avez gagné !
-&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;La Victoire guidant le peuple - Burgermac - 2016 &lt;/figcaption&gt;
-&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;auto-image &quot;La Victoire guidant le peuple - Burgermac - 2016&quot;&gt;&gt;
 Vous avez su trouver tous les animaux. &#39;&#39;Bravo&#39;&#39;!    
 ----
 Si vous voulez recommencer la partie, cliquez sur le bouton corresondant dans la barre latérale. Sinon, fermez simplement votre navigateur.  
@@ -904,16 +810,22 @@ Et merci de votre visite dans ce &#39;&#39;mini-monde&#39;&#39;.
 * Débusquer &#39;&#39;huit&#39;&#39; animaux différents pour &#39;&#39;gagner la partie&#39;&#39;.
 * Éviter la piqûre des guêpes géantes !
 * Vous pouvez aussi découvrir la [[localisation|carte]] du Mini-monde sur OpenStreetMap\</tw-passagedata>
-<tw-passagedata pid="28" name="perdu" tags="nuit" position="1526,612">!Vous avez perdu !
-&lt;&lt;nobr&gt;&gt;&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;Vespula Germanica - P. Kessler - 2015 &lt;/figcaption&gt;
-&lt;/figure&gt;&lt;&lt;/nobr&gt;&gt;
+<tw-passagedata pid="28" name="perdu" tags="nuit" position="1521,612">!Vous avez perdu !
+&lt;&lt;auto-image &quot;Vespula Germanica - P. Kessler - 2015&quot;&gt;&gt;
 Vous avez trouvé un animal de trop : &#39;&#39;vous étiez pourtant prévenu(e)&#39;&#39; !    
 La piqûre de cette guêpe géante vous inflige d&#39;horribles souffrances. Vous n&#39;êtes plus en état de continuer la partie : il vous faut quitter le &#39;&#39;mini-monde&#39;&#39;.
 ----
 Si vous voulez recommencer la partie, cliquez sur le bouton corresondant dans la barre latérale. Sinon, fermez simplement votre navigateur.  
 </tw-passagedata>
+<tw-passagedata pid="29" name="Widgets" tags="widget nobr" position="1525,745">&lt;&lt;widget &quot;auto-image&quot;&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;
+&lt;figure&gt;
+[img[$image]]
+&lt;figcaption&gt;$args[0]&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata>
 </tw-storydata>
 </div>
 	<script id="script-sugarcube" type="text/javascript">
