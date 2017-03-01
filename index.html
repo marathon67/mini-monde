@@ -329,6 +329,10 @@ nuit> figcaption {
 /*! <<checkvars>> macro for SugarCube 2.x */
 #ui-dialog-body.checkvars{padding:1em}#ui-dialog-body.checkvars h1{font-size:1.5em;margin-top:0}#ui-dialog-body.checkvars table{border-collapse:collapse;border-spacing:0}#ui-dialog-body.checkvars thead tr{border-bottom:2px solid #ccc}#ui-dialog-body.checkvars tr:not(:first-child){border-top:1px solid #ccc}#ui-dialog-body.checkvars td,#ui-dialog-body.checkvars th{padding:.25em 1em}#ui-dialog-body.checkvars td:first-child,#ui-dialog-body.checkvars th:first-child{padding-left:.5em;border-right:1px solid #ccc}#ui-dialog-body.checkvars td:last-child,#ui-dialog-body.checkvars th:last-child{padding-right:.5em}#ui-dialog-body.checkvars th:first-child{text-align:center}#ui-dialog-body.checkvars td:first-child{font-weight:700;text-align:right}#ui-dialog-body.checkvars td{font-family:monospace,monospace;vertical-align:top;white-space:pre-wrap}#ui-dialog-body.checkvars .scroll-pad{margin:0;padding:0}
 
+
+
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">Macro.add("mytest", {
     handler  : function () {
         try {
@@ -560,9 +564,13 @@ Macro.add('mousegoto', {
 
 
 
-</script><tw-passagedata pid="1" name="start" tags="nuit" position="776,202">!Le Mini-Monde
+
+
+
+
+</script><tw-passagedata pid="1" name="start" tags="nuit" position="776,201">!Le Mini-Monde
 &lt;&lt;auto-image &quot;Matins qui chantent - Pierre Kessler - 2017&quot;&gt;&gt;
-Un démonstrateur des possibilités du format *SugarCube 2* dans Twine. Cliquez sur la &#39;&#39;flèche&#39;&#39; à votre gauche pour faire apparaître le menu. Voyez aussi le [[dépôt Github|https://github.com/marathon67/mini-monde]].
+Un démonstrateur des possibilités du format //SugarCube 2// dans Twine. Cliquez sur la &#39;&#39;flèche&#39;&#39; à votre gauche pour faire apparaître le menu. Voyez aussi le [[dépôt Github|https://github.com/marathon67/mini-monde]].
 !!!Prêt à [[découvrir mon petit monde|maison]] ?
 ----
 !!Fonctionnalités proposées ici
@@ -586,8 +594,8 @@ Points : $points
 Expérience : $experience
 Animaux vus (sur $max_animaux) : $animaux
 </tw-passagedata>
-<tw-passagedata pid="3" name="StoryInit" tags="" position="1263,102">&lt;&lt;initInv&gt;&gt;
-&lt;&lt;set $online_medias_url to &quot;https://marathon67.github.io/mini-monde/medias/&quot;&gt;&gt;
+<tw-passagedata pid="3" name="StoryInit" tags="" position="1263,102">&lt;&lt;set $online_medias_url to &quot;https://www.bac-a-sable.eu/mini-monde/medias/&quot;&gt;&gt;
+&lt;&lt;initInv&gt;&gt;
 &lt;&lt;set $son_nuit to $online_medias_url+&quot;start.mp3&quot;&gt;&gt;
 &lt;&lt;set $son_maison to $online_medias_url+&quot;maison.mp3&quot;&gt;&gt;
 &lt;&lt;set $son_foret to $online_medias_url+&quot;foret.mp3&quot;&gt;&gt;
@@ -820,13 +828,13 @@ La piqûre de cette guêpe géante vous inflige d&#39;horribles souffrances. Vou
 Si vous voulez recommencer la partie, cliquez sur le bouton corresondant dans la barre latérale. Sinon, fermez simplement votre navigateur.  
 </tw-passagedata>
 <tw-passagedata pid="29" name="Widgets" tags="widget nobr" position="1525,745">&lt;&lt;widget &quot;auto-image&quot;&gt;&gt;
-&lt;&lt;nobr&gt;&gt;
-&lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;
-&lt;figure&gt;
-[img[$image]]
-&lt;figcaption&gt;$args[0]&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;&lt;/nobr&gt;&gt;
+	&lt;&lt;nobr&gt;&gt;
+	&lt;&lt;set $image to $online_medias_url+passage()+&quot;.jpg&quot;&gt;&gt;
+	&lt;figure&gt;
+		[img[$image]]
+		&lt;figcaption&gt;$args[0]&lt;/figcaption&gt;
+	&lt;/figure&gt;
+	&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;</tw-passagedata>
 </tw-storydata>
 </div>
